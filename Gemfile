@@ -40,6 +40,7 @@ gem 'omniauth'
 
 # Bootstrap 4 ruby gem for Ruby on Rails (Sprockets) and Compass.
 gem 'bootstrap', '~> 4.0.0.alpha3'
+gem 'autoprefixer-rails'
 
 source 'https://rails-assets.org' do
   gem 'rails-assets-tether', '>= 1.1.0'

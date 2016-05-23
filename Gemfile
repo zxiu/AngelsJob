@@ -32,9 +32,11 @@ gem 'sdoc', '~> 0.4.0', group: :doc
 # Use Capistrano for deployment
 # gem 'capistrano-rails', group: :development
 
+# Devise is a flexible authentication solution for Rails based on Warden.
 gem 'devise'
 
-gem 'haml'
+# Haml-rails provides Haml generators for Rails 4.
+gem "haml-rails", "~> 0.9"
 
 gem 'omniauth'
 

@@ -26,7 +26,7 @@
     = f.text_field :mobile
   .field
     = f.label :birthday
-    = f.date_select :birthday, start_year: 1950
+    = f.date_select :birthday, start_year: 1950, include_blank: true
   .field
     = f.label :gender
     -# = f.number_field :gender

@@ -1,0 +1,11 @@
+StudyInfos Index
+= @study_infos.length
+= link_to "New", new_system_settings_study_info_path
+
+- unless @study_infos.blank?
+  %table.table
+    %thead
+      %tr
+        - @study_infos.columns.each do | column |
+          %td
+            = column.name

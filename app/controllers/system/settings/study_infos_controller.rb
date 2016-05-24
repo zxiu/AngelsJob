@@ -1,13 +1,28 @@
 class System::Settings::StudyInfosController < System::SettingsController
-  before_action :set_personal_info, only: [:show, :update, :destroy]
+  before_action :set_study_info, only: [:show, :update, :destroy]
 
   def index
-    @study_infos = StudyInfo.all
+    @study_infos = StudyInfo.all.order("#{:begin} DESC, #{:end} DESC")
   end
 
-  # GET /personal_infos/new
+  # GET /study_infos/new
   def new
-    @study_infos = StudyInfo.new
+    @study_info = StudyInfo.new
+  end
+
+  # POST /study_infos
+  # POST /study_infos.json
+  def create
+    @study_info = StudyInfo.new(study_info_params)
+    respond_to do |format|
+      if @study_info.save
+        format.html { redirect_to action: :index, notice: 'Personal info was successfully created.' }
+        format.json { render :show, status: :created, location: @study_info }
+      else
+        format.html { render :new }
+        format.json { render json: @study_info.errors, status: :unprocessable_entity }
+      end
+    end
   end
 
   def edit
@@ -20,7 +35,7 @@ class System::Settings::StudyInfosController < System::SettingsController
 
   def update
     respond_to do |format|
-      if @study_info.update(personal_info_params)
+      if @study_info.update(study_info_params)
         format.html { render :edit, notice: 'Study info was successfully updated.' }
         format.json { render :show, status: :ok, location: @study_info }
       else
@@ -49,7 +64,7 @@ class System::Settings::StudyInfosController < System::SettingsController
 
     # Never trust parameters from the scary internet, only allow the white list through.
     def study_info_params
-      params.require(:study_info).permit(:first_name, :last_name, :tel, :mobile, :birthday, :gender)
+      params.require(:study_info).permit(:insititude, :subject, :begin, :end, :graduation, :score)
     end
 
 end

@@ -17,9 +17,9 @@ Rails.application.routes.draw do
   namespace :system do
     namespace :settings do
       resource :personal_info, only: [:show, :edit, :update]
-      resources :study_infos, only: [:index, :edit, :update]
-      resources :career_infos, only: [:index, :edit, :update]
-      resource :extra_info, only: [:show, :edit, :update]
+      resources :study_infos
+      resources :career_infos
+      resources :extra_infos
     end
   end
 

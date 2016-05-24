@@ -11,12 +11,12 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20160523235749) do
+ActiveRecord::Schema.define(version: 20160524113151) do
 
   create_table "personal_infos", force: :cascade do |t|
     t.string   "first_name", limit: 255
     t.string   "last_name",  limit: 255
-    t.string   "email",        limit: 255
+    t.string   "email",      limit: 255
     t.string   "tel",        limit: 255
     t.string   "mobile",     limit: 255
     t.date     "birthday"
@@ -25,6 +25,20 @@ ActiveRecord::Schema.define(version: 20160523235749) do
     t.datetime "updated_at",             null: false
     t.integer  "user_id",    limit: 4
   end
+
+  create_table "study_infos", force: :cascade do |t|
+    t.string   "insititude", limit: 255, null: false
+    t.string   "subject",    limit: 255
+    t.date     "begin"
+    t.date     "end"
+    t.string   "graduation", limit: 255
+    t.string   "score",      limit: 255
+    t.integer  "user_id",    limit: 4
+    t.datetime "created_at",             null: false
+    t.datetime "updated_at",             null: false
+  end
+
+  add_index "study_infos", ["user_id"], name: "index_study_infos_on_user_id", using: :btree
 
   create_table "users", force: :cascade do |t|
     t.string   "email",                  limit: 255, default: "", null: false
@@ -54,4 +68,5 @@ ActiveRecord::Schema.define(version: 20160523235749) do
   add_index "users", ["reset_password_token"], name: "index_users_on_reset_password_token", unique: true, using: :btree
   add_index "users", ["unlock_token"], name: "index_users_on_unlock_token", unique: true, using: :btree
 
+  add_foreign_key "study_infos", "users"
 end

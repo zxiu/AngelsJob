@@ -1,0 +1,16 @@
+%html
+  %head
+    %meta{:content => "text/html; charset=UTF-8", "http-equiv" => "Content-Type"}
+    %title AngelsJob
+    = stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track' => true
+    = javascript_include_tag 'application', 'data-turbolinks-track' => true
+    = csrf_meta_tags
+  %body
+    .container-fluid
+      Angel's Job System
+      - unless notice.blank?
+        %p.notice = notice
+      - unless alert.blank?
+        %p.alert = alert
+      = render partial: "shared/system/nav_head"
+      = yield :content

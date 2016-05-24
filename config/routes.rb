@@ -1,4 +1,32 @@
 Rails.application.routes.draw do
+
+  # resources :personal_infos
+  devise_for :users
+  root :to => "system#index"
+
+  get 'system' => 'system#index'
+
+  resource :system do
+
+  end
+
+  namespace :system do
+    resource :settings, only: [:show]
+  end
+
+  namespace :system do
+    namespace :settings do
+      resource :personal_info, only: [:show, :edit, :update]
+      resources :study_infos
+      resources :career_infos
+      resources :extra_infos
+    end
+  end
+
+
+
+
+
   # The priority is based upon order of creation: first created -> highest priority.
   # See how all your routes lay out with "rake routes".
 

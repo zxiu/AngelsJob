@@ -1,0 +1,11 @@
+# Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
+
+one:
+  insititude: MyString
+  subject: MyText
+  user_id: 
+
+two:
+  insititude: MyString
+  subject: MyText
+  user_id: 

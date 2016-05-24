@@ -1,3 +1,12 @@
+GIT
+  remote: git://github.com/carrierwaveuploader/carrierwave.git
+  revision: b31f7ce006bade550be0ad946d0b993b799358e3
+  specs:
+    carrierwave (0.11.0)
+      activemodel (>= 4.0.0)
+      activesupport (>= 4.0.0)
+      mime-types (>= 1.16)
+
 GEM
   remote: https://rubygems.org/
   remote: https://rails-assets.org/
@@ -209,6 +218,7 @@ DEPENDENCIES
   autoprefixer-rails
   bootstrap (~> 4.0.0.alpha3)
   byebug
+  carrierwave!
   coffee-rails (~> 4.1.0)
   devise
   haml-rails (~> 0.9)

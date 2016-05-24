@@ -5,6 +5,7 @@ class CreatePersonalInfos < ActiveRecord::Migration
       t.string :last_name
       t.string :tel
       t.string :mobile
+      t.string :email
       t.date :birthday
       t.integer :gender
 

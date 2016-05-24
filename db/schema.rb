@@ -16,6 +16,7 @@ ActiveRecord::Schema.define(version: 20160523235749) do
   create_table "personal_infos", force: :cascade do |t|
     t.string   "first_name", limit: 255
     t.string   "last_name",  limit: 255
+    t.string   "email",        limit: 255
     t.string   "tel",        limit: 255
     t.string   "mobile",     limit: 255
     t.date     "birthday"

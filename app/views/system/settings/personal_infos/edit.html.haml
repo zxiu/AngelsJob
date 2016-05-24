@@ -1,8 +1,7 @@
 %h1
   Editing personal_info
-  = current_user.personal_info
--# = render 'form'
-
-= link_to 'Show', @personal_info
-
--# = link_to 'Back', personal_infos_path
+  = current_user.personal_info.id
+%p
+  #notice
+    = notice
+= render 'form'

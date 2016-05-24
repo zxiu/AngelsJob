@@ -1,6 +1,6 @@
 Rails.application.routes.draw do
 
-  resources :personal_infos
+  # resources :personal_infos
   devise_for :users
   root :to => "system#index"
 

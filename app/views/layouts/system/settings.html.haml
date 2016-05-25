@@ -1,13 +1,9 @@
 = render template: "layouts/system"
 .col-lg-3.col-sm-6
-  %p.container
-    .list-group
-      = link_to 'Personal', personal_info_path, class: ["list-group-item"]
-      = link_to 'Education', education_infos_path, class: ["list-group-item"]
-      = link_to 'Career', career_infos_path, class: ["list-group-item"]
-      %a.list-group-item{:href => "#"} Morbi leo risus
-      %a.list-group-item{:href => "#"} Porta ac consectetur ac
-      %a.list-group-item{:href => "#"} Vestibulum at eros
+  %p
+    .container
+      = render partial: 'shared/system/settings/nav_side'
 .col-lg-9.col-sm-6
-  .container
-    = yield
+  %p
+    .container
+      = yield

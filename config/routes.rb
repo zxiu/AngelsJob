@@ -19,7 +19,7 @@ Rails.application.routes.draw do
       resource :personal_info, only: [:show, :edit, :update]
       resources :education_infos
       resources :career_infos
-      resources :extra_infos
+      resources :skills
     end
   end
 

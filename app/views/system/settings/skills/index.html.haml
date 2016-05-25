@@ -1,0 +1,10 @@
+Skills
+= link_to "New", new_skill_path
+
+- @skills.each do |skill|
+  %p
+    .card.card-block
+      %p.card-text
+        = "#{skill.name} - #{skill.level}"
+      = link_to "Edit", edit_skill_path(skill.id)
+      = link_to "Delete", skill_path(skill.id), method: :delete, data: {confirm: "Really delete this record?"}

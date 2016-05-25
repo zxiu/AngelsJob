@@ -14,15 +14,6 @@ Rails.application.routes.draw do
     resource :settings, only: [:show]
   end
 
-  # namespace :system do
-  #   namespace :settings do
-  #     resource :personal_info, only: [:show, :edit, :update]
-  #     resources :study_infos
-  #     resources :career_infos
-  #     resources :extra_infos
-  #   end
-  # end
-
   scope module: :system do
     scope module: :settings do
       resource :personal_info, only: [:show, :edit, :update]

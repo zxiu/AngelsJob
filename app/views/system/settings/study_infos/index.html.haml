@@ -1,4 +1,4 @@
-StudyInfos Index
+StudyInfos
 = link_to "New", new_study_info_path
 
 - @study_infos.each do |study_info|
@@ -10,11 +10,3 @@ StudyInfos Index
         = "#{study_info.insititude}, #{study_info.graduation}, #{study_info.score}"
       = link_to "Edit", edit_study_info_path(study_info.id)
       = link_to "Delete", study_info_path(study_info.id), method: :delete, data: {confirm: "Really delete this record?"}
-  -# %table.table
-  -#   %tbody
-  -#     - @study_infos.columns.each do | column |
-  -#       %tr
-  -#         %td
-  -#           = column.name
-  -#         %td
-  -#           = column.to_json

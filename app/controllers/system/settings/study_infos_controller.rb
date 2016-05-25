@@ -2,7 +2,7 @@ class System::Settings::StudyInfosController < System::SettingsController
   before_action :set_study_info, only: [:show, :edit, :update, :destroy]
 
   def index
-    @study_infos = StudyInfo.all.order("#{:begin} DESC, #{:end} DESC")
+    @study_infos = current_user.study_infos.order("#{:begin} DESC, #{:end} DESC")
   end
 
   # GET /study_infos/new
@@ -16,6 +16,7 @@ class System::Settings::StudyInfosController < System::SettingsController
     @study_info = StudyInfo.new(study_info_params)
     respond_to do |format|
       if @study_info.save
+        current_user.study_infos << @study_info
         format.html { redirect_to action: :index, notice: 'Personal info was successfully created.' }
         format.json { render :show, status: :created, location: @study_info }
       else
@@ -54,7 +55,7 @@ class System::Settings::StudyInfosController < System::SettingsController
   private
     # Use callbacks to share common setup or constraints between actions.
     def set_study_info
-      @study_info = StudyInfo.find(params[:id])
+      @study_info = current_user.study_infos.find(params[:id])
     end
 
     # Never trust parameters from the scary internet, only allow the white list through.

@@ -1,6 +1,6 @@
-class CreateStudyInfos < ActiveRecord::Migration
+class CreateEducationInfos < ActiveRecord::Migration
   def change
-    create_table :study_infos do |t|
+    create_table :education_infos do |t|
       t.string :insititude, null: false
       t.string :subject
       t.date   :begin

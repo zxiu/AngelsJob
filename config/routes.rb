@@ -17,7 +17,7 @@ Rails.application.routes.draw do
   scope module: :system do
     scope module: :settings do
       resource :personal_info, only: [:show, :edit, :update]
-      resources :study_infos
+      resources :education_infos
       resources :career_infos
       resources :extra_infos
     end

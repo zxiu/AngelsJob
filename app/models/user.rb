@@ -6,5 +6,5 @@ class User < ActiveRecord::Base
          :confirmable, :lockable, :timeoutable, :omniauthable
 
   has_one :personal_info
-  has_many :study_infos
+  has_many :education_infos
 end

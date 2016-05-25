@@ -7,13 +7,13 @@ class System::Settings::CareerInfosController < System::SettingsController
 
   # GET /career_infos/new
   def new
-    @career_info = EducationInfo.new
+    @career_info = CareerInfo.new
   end
 
   # POST /career_infos
   # POST /career_infos.json
   def create
-    @career_info = EducationInfo.new(career_info_params)
+    @career_info = CareerInfo.new(career_info_params)
     respond_to do |format|
       if @career_info.save
         current_user.career_infos << @career_info
@@ -60,7 +60,7 @@ class System::Settings::CareerInfosController < System::SettingsController
 
     # Never trust parameters from the scary internet, only allow the white list through.
     def career_info_params
-      params.require(:career_info).permit(:insititude, :subject, :begin, :end, :graduation, :score)
+      params.require(:career_info).permit(:employer, :position, :begin, :end, :activity)
     end
 
 end

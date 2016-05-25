@@ -7,4 +7,5 @@ class User < ActiveRecord::Base
 
   has_one :personal_info
   has_many :education_infos
+  has_many :career_infos
 end

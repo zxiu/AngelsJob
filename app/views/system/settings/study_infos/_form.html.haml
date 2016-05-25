@@ -1,4 +1,4 @@
-= form_for @study_info, url: system_settings_study_infos_path, method: :post do |f|
+= form_for @study_info do |f|
   - if @study_info.errors.any?
     #error_explanation
       %h2= "#{pluralize(@study_info.errors.count, "error")} prohibited this study_info from being saved:"
@@ -16,10 +16,10 @@
     = f.text_field :graduation
   .field
     = f.label :begin
-    = f.date_select :begin, start_year: 1950, include_blank: true
+    = f.date_select :begin, start_year: 1950, include_blank: true, discard_day: true
   .field
     = f.label :end
-    = f.date_select :begin, start_year: 1950, include_blank: true
+    = f.date_select :end, start_year: 1950, include_blank: true, discard_day: true
   .field
     = f.label :score
     = f.text_field :score

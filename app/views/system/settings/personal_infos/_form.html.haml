@@ -1,13 +1,10 @@
-= system_settings_personal_info_path
-= form_for @personal_info, url: system_settings_personal_info_path, method: :patch do |f|
+= form_for @personal_info do |f|
   - if @personal_info.errors.any?
     #error_explanation
       %h2= "#{pluralize(@personal_info.errors.count, "error")} prohibited this personal_info from being saved:"
       %ul
         - @personal_info.errors.full_messages.each do |msg|
           %li= msg
-  .field
-    = f.hidden_field :id
 
   .field
     = f.label :first_name
@@ -30,7 +27,7 @@
   .field
     = f.label :gender
     -# = f.number_field :gender
-    = f.select :gender,  PersonalInfo.genders.keys.to_a
+    = f.select :gender,  PersonalInfo.genders.keys.to_a, include_blank: true
 
   .actions
     = f.submit 'Save'

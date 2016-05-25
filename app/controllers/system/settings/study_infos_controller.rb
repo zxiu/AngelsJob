@@ -1,5 +1,5 @@
 class System::Settings::StudyInfosController < System::SettingsController
-  before_action :set_study_info, only: [:show, :update, :destroy]
+  before_action :set_study_info, only: [:show, :edit, :update, :destroy]
 
   def index
     @study_infos = StudyInfo.all.order("#{:begin} DESC, #{:end} DESC")
@@ -26,17 +26,13 @@ class System::Settings::StudyInfosController < System::SettingsController
   end
 
   def edit
-    if current_user.study_infos.blank?
-      current_user.study_infos = StudyInfo.create
-    end
-    @user = current_user
-    @study_infos = current_user.study_infos
+
   end
 
   def update
     respond_to do |format|
       if @study_info.update(study_info_params)
-        format.html { render :edit, notice: 'Study info was successfully updated.' }
+        format.html { redirect_to action: :index, notice: 'Study info was successfully updated.' }
         format.json { render :show, status: :ok, location: @study_info }
       else
         format.html { render :edit }
@@ -50,7 +46,7 @@ class System::Settings::StudyInfosController < System::SettingsController
   def destroy
     @study_info.destroy
     respond_to do |format|
-      format.html { redirect_to study_infos_url, notice: 'Personal info was successfully destroyed.' }
+      format.html { redirect_to action: :index, notice: 'Personal info was successfully destroyed.' }
       format.json { head :no_content }
     end
   end
@@ -58,8 +54,7 @@ class System::Settings::StudyInfosController < System::SettingsController
   private
     # Use callbacks to share common setup or constraints between actions.
     def set_study_info
-      puts(params.require(:study_info))
-      @study_info = StudyInfo.find(params.require(:study_info)[:id])
+      @study_info = StudyInfo.find(params[:id])
     end
 
     # Never trust parameters from the scary internet, only allow the white list through.

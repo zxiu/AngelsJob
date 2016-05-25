@@ -1,15 +1,20 @@
 StudyInfos Index
-= @study_infos.length
-= link_to "New", new_system_settings_study_info_path
+= link_to "New", new_study_info_path
 
 - @study_infos.each do |study_info|
-  = study_info.begin
-  = study_info.end
-  %table.table
-    %tbody
-      - @study_infos.columns.each do | column |
-        %tr
-          %td
-            = column.name
-          %td
-            = column.to_json
+  %p
+    .card.card-block
+      %h4
+        = "#{study_info.begin} - #{study_info.end}"
+      %p.card-text
+        = "#{study_info.insititude}, #{study_info.graduation}, #{study_info.score}"
+      = link_to "Edit", edit_study_info_path(study_info.id)
+      = link_to "Delete", study_info_path(study_info.id), method: :delete, data: {confirm: "Really delete this record?"}
+  -# %table.table
+  -#   %tbody
+  -#     - @study_infos.columns.each do | column |
+  -#       %tr
+  -#         %td
+  -#           = column.name
+  -#         %td
+  -#           = column.to_json

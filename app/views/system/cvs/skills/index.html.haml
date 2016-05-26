@@ -6,5 +6,9 @@ Skills
     .card.card-block
       %p.card-text
         = "#{skill.name} - #{skill.level}"
-      = link_to "Edit", edit_skill_path(skill.id)
-      = link_to "Delete", skill_path(skill.id), method: :delete, data: {confirm: "Really delete this record?"}
+      %p
+        .row
+          = render partial: 'shared/system/cvs/assets', locals: {assets: skill.assets}
+      %p
+        = link_to "Edit", edit_skill_path(skill.id)
+        = link_to "Delete", skill_path(skill.id), method: :delete, data: {confirm: "Really delete this record?"}

@@ -60,7 +60,7 @@ class System::Cvs::SkillsController < System::CvsController
 
     # Never trust parameters from the scary internet, only allow the white list through.
     def skill_params
-      params.require(:skill).permit(:name, :level, :catalog)
+      params.require(:skill).permit(:name, :level, :catalog, {assets: []})
     end
 
 end

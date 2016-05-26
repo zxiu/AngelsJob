@@ -14,6 +14,8 @@
   .field
     = f.label :catalog
     = f.text_field :catalog
-    
+  .field
+    = f.label :assets
+    = f.file_field :assets, multiple: true
   .actions
     = f.submit 'Save'

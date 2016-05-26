@@ -28,6 +28,11 @@
     = f.label :gender
     -# = f.number_field :gender
     = f.select :gender,  PersonalInfo.genders.keys.to_a, include_blank: true
-
+  .field
+    = f.label :avatar
+    = f.file_field :avatar
+  .field
+    = f.label :remote_avatar_url, "or avatar URL"
+    = f.text_field :remote_avatar_url
   .actions
     = f.submit 'Save'

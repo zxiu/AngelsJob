@@ -1,4 +1,4 @@
-class System::Settings::EducationInfosController < System::SettingsController
+class System::Cvs::EducationInfosController < System::CvsController
   before_action :set_education_info, only: [:show, :edit, :update, :destroy]
 
   def index

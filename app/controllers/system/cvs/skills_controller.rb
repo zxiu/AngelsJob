@@ -1,4 +1,4 @@
-class System::Settings::SkillsController < System::SettingsController
+class System::Cvs::SkillsController < System::CvsController
   before_action :set_skill, only: [:show, :edit, :update, :destroy]
 
   def index

@@ -1,4 +1,4 @@
-class System::Settings::CareerInfosController < System::SettingsController
+class System::Cvs::CareerInfosController < System::CvsController
   before_action :set_career_info, only: [:show, :edit, :update, :destroy]
 
   def index

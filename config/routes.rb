@@ -11,11 +11,11 @@ Rails.application.routes.draw do
   end
 
   namespace :system do
-    resource :settings, only: [:show]
+    resource :cvs, only: [:show]
   end
 
   scope module: :system do
-    scope module: :settings do
+    scope module: :cvs do
       resource :personal_info, only: [:show, :edit, :update]
       resources :education_infos
       resources :career_infos

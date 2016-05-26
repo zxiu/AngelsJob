@@ -1,4 +1,4 @@
-class System::Settings::PersonalInfosController < System::SettingsController
+class System::Cvs::PersonalInfosController < System::CvsController
   before_action :current_user_personal_info, only: [:show, :edit, :update]
 
   def show

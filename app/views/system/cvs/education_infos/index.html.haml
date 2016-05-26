@@ -8,17 +8,9 @@
         = "#{education_info.begin} - #{education_info.end}"
       %p.card-text
         = "#{education_info.insititude}, #{education_info.graduation}, #{education_info.score}"
-      %p.row
-        - education_info.assets.each do |asset, index|
-          .col-md-2
-            = link_to asset.url, target: :_blank do
-              %p
-                - if asset.is_image?
-                  = image_tag asset.url, class: ["img-rounded"], width: 100
-                - if asset.is_pdf?
-                  = asset.url 'icon-pdf', class: ["img-rounded"], width: 100
-              %p
-                = asset.file.filename
-      %p.row
+      %p
+        .row
+          = render partial: 'shared/system/cvs/assets', locals: {assets: education_info.assets}
+      %p
         = link_to "Edit", edit_education_info_path(education_info.id)
         = link_to "Delete", education_info_path(education_info.id), method: :delete, data: {confirm: "Really delete this record?"}

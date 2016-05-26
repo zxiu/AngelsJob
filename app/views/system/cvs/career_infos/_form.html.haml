@@ -20,6 +20,8 @@
   .field
     = f.label :end
     = f.date_select :end, start_year: 1950, include_blank: true, discard_day: true
-
+  .field
+    = f.label :assets
+    = f.file_field :assets, multiple: true
   .actions
     = f.submit 'Save'

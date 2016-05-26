@@ -60,7 +60,7 @@ class System::Cvs::CareerInfosController < System::CvsController
 
     # Never trust parameters from the scary internet, only allow the white list through.
     def career_info_params
-      params.require(:career_info).permit(:employer, :position, :begin, :end, :activity)
+      params.require(:career_info).permit(:employer, :position, :begin, :end, :activity, {assets: []})
     end
 
 end

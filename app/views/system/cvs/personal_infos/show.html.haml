@@ -2,7 +2,7 @@
 
 %p
   %b Avatar:
-  = image_tag @personal_info.avatar_url.to_s
+  = image_tag @personal_info.avatar_url.to_s, class: ["img-thumbnail"], width: 100
 %p
   %b First name:
   = @personal_info.first_name

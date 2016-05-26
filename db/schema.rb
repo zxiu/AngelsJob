@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20160526103925) do
+ActiveRecord::Schema.define(version: 20160526124649) do
 
   create_table "career_infos", force: :cascade do |t|
     t.string   "employer",   limit: 255,   null: false
@@ -35,6 +35,7 @@ ActiveRecord::Schema.define(version: 20160526103925) do
     t.integer  "user_id",    limit: 4
     t.datetime "created_at",             null: false
     t.datetime "updated_at",             null: false
+    t.string   "assets",     limit: 255
   end
 
   add_index "education_infos", ["user_id"], name: "index_education_infos_on_user_id", using: :btree

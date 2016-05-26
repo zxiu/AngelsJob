@@ -23,6 +23,8 @@
   .field
     = f.label :score
     = f.text_field :score
-
+  .field
+    = f.label :assets
+    = f.file_field :assets, multiple: true 
   .actions
     = f.submit 'Save'

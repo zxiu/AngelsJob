@@ -60,7 +60,7 @@ class System::Cvs::EducationInfosController < System::CvsController
 
     # Never trust parameters from the scary internet, only allow the white list through.
     def education_info_params
-      params.require(:education_info).permit(:insititude, :subject, :begin, :end, :graduation, :score)
+      params.require(:education_info).permit(:insititude, :subject, :begin, :end, :graduation, :score, {assets: []})
     end
 
 end

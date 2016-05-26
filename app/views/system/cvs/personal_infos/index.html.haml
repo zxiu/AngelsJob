@@ -17,7 +17,6 @@
   %tbody
     - @personal_infos.each do |personal_info|
       %tr
-        %td= image_tag @personal_infos.avatar_url.to_s
         %td= personal_info.first_name
         %td= personal_info.last_name
         %td= personal_info.tel

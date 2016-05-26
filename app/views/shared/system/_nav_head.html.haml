@@ -2,7 +2,7 @@
   .nav.nav-pills
     %a.navbar-brand.nav-link{:href => "#"} AngelsJob
     = link_to 'Home', root_path, class: ["nav-item", "nav-link"]
-    %a.nav-item.nav-link{:href => "#"} Features
     = link_to 'Curriculum Vitae', system_cvs_path, class: ["nav-item", "nav-link"]
+    %a.nav-item.nav-link{:href => "#"} Mails
     %a.nav-item.nav-link{:href => "#"} About
     = link_to 'Logout', destroy_user_session_path, method: :delete, class: ["nav-item", "nav-link"]

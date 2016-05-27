@@ -5,10 +5,7 @@ Rails.application.routes.draw do
   root :to => "system#index"
 
   get 'system' => 'system#index'
-
-  resource :system do
-
-  end
+  get 'tadmin' => 'tadmin#index'
 
 
   scope module: :system do
@@ -24,6 +21,10 @@ Rails.application.routes.draw do
     scope module: :jobs do
       resources :agents
     end
+  end
+
+  namespace :tadmin do
+    resources :agents
   end
 
 

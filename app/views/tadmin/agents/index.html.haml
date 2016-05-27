@@ -1,0 +1,26 @@
+%p
+  Admin agent's index
+  = link_to "New", new_tadmin_agent_path
+%p
+  - @agents.each do |agent|
+    .col.col-lg-4
+      .card.card-block
+        %p
+          = image_tag agent.logo, class: [:logo]
+        %h4
+          = agent.name
+        %p.card-text
+          = agent.homepage
+        -# %p
+        -#   .row
+        -#     = render partial: 'shared/system/cvs/assets', locals: {assets: career_info.assets}
+        %p
+          = link_to "Edit", edit_tadmin_agent_path(agent.id)
+          = link_to "Delete", tadmin_agent_path(agent.id), method: :delete, data: {confirm: "Really delete this record?"}
+
+:css
+  .logo{
+    width: 200px;
+    height: 100px;
+    -o-object-fit: contain;
+  }

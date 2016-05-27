@@ -11,4 +11,5 @@
         %p.notice = notice
       - unless alert.blank?
         %p.alert = alert
-      = render partial: "shared/system/nav_head"
+      = render partial: "shared/tadmin/nav_head"
+      = yield

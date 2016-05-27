@@ -1,11 +1,13 @@
-class System::Jobs::AgentsController < System::JobsController
+class Tadmin::AgentsController < TadminController
   before_action :set_agent, only: [:show, :edit, :update, :destroy]
 
-  def index
-    @agents = current_user.agents
+  def show
   end
 
-  # GET /agents/new
+  def index
+    @agents = Agent.all
+  end
+
   def new
     @agent = Agent.new
   end
@@ -13,7 +15,8 @@ class System::Jobs::AgentsController < System::JobsController
   # POST /agents
   # POST /agents.json
   def create
-    @agent = Agent.new(agent_params)
+    @agent = Agent.new
+    @agent.update(agent_params)
     respond_to do |format|
       if @agent.save
         current_user.agents << @agent
@@ -27,13 +30,12 @@ class System::Jobs::AgentsController < System::JobsController
   end
 
   def edit
-
   end
 
   def update
     respond_to do |format|
       if @agent.update(agent_params)
-        format.html { redirect_to action: :index, notice: 'Education info was successfully updated.' }
+        format.html { redirect_to action: :index, notice: 'Agent info was successfully updated.' }
         format.json { render :show, status: :ok, location: @agent }
       else
         format.html { render :edit }
@@ -60,7 +62,6 @@ class System::Jobs::AgentsController < System::JobsController
 
     # Never trust parameters from the scary internet, only allow the white list through.
     def agent_params
-      params.require(:agent).permit(:name, :domain, :logo, :locate)
+      params.require(:agent).permit(:name, :homepage, :logo, :locate)
     end
-
 end

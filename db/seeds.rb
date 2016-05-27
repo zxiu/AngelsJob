@@ -10,6 +10,6 @@ admin = User.new({:email => 'admin@admin.com', :password => 'defaultpw', :passwo
 admin.skip_confirmation!
 admin.save
 
-Agent.new({name: 'Stepstone.de', homepage: 'https://www.stepstone.de/', logo: 'https://media.stepstone.com/modules/duplo/resources/images/stepstone-logo@2x.png'})
-Agent.new({name: 'Monster.de', homepage: 'http://www.monster.de/', logo: 'http://media.newjobs.com/niche/images/monster-new-lg.png'})
-Agent.new({name: 'Job.de', homepage: 'http://job.de/', logo: 'http://www.isironline.org/wp-content/uploads/2014/09/Job.jpg'})
+Agent.create({name: 'Stepstone.de', homepage: 'https://www.stepstone.de/', logo: 'https://media.stepstone.com/modules/duplo/resources/images/stepstone-logo@2x.png'})
+Agent.create({name: 'Monster.de', homepage: 'http://www.monster.de/', logo: 'http://media.newjobs.com/niche/images/monster-new-lg.png'})
+Agent.create({name: 'Job.de', homepage: 'http://job.de/', logo: 'http://www.isironline.org/wp-content/uploads/2014/09/Job.jpg'})

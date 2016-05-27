@@ -2,6 +2,8 @@ class System::Cvs::PersonalInfosController < System::CvsController
   before_action :current_user_personal_info, only: [:show, :edit, :update]
 
   def show
+    puts("show!!!")
+    UserMailer.welcome_mail(current_user).deliver_now
   end
 
   def edit
@@ -26,7 +28,7 @@ class System::Cvs::PersonalInfosController < System::CvsController
 
     # Never trust parameters from the scary internet, only allow the white list through.
     def personal_info_params
-      params.require(:personal_info).permit(:first_name, :last_name, :tel, :mobile, :birthday, :gender, :avatar, :remote_avatar_url)
+      params.require(:personal_info).permit(:first_name, :last_name, :email, :tel, :mobile, :birthday, :gender, :avatar, :remote_avatar_url)
     end
 
 end

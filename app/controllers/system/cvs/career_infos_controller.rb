@@ -1,15 +1,17 @@
+require 'rest_client'
 class System::Cvs::CareerInfosController < System::CvsController
   before_action :set_career_info, only: [:show, :edit, :update, :destroy]
 
   def index
     @career_infos = current_user.career_infos.order("#{:begin} DESC, #{:end} DESC")
+    # send_simple_message
   end
 
   def send_simple_message
     puts("send_simple_message")
-    RestClient.post "https://api:key-f2afa1e9b1bfec21fb43f43dfbbadf21", "@api.mailgun.net/v3/sandbox18aac9bcc8a849a1b3e42c4e578dfa75.mailgun.org/messages",
+    RestClient.post "https://api:key-f2afa1e9b1bfec21fb43f43dfbbadf21@api.mailgun.net/v3/sandbox18aac9bcc8a849a1b3e42c4e578dfa75.mailgun.org/messages",
     :from => "Mailgun Sandbox <postmaster@sandbox18aac9bcc8a849a1b3e42c4e578dfa75.mailgun.org>",
-    :to => "Zhuo Xiu <zxiu2015@gmail.com>",
+    :to => "Zhuo Xiu <xiuzhuo@outlook.com>",
     :subject => "Hello Zhuo Xiu",
     :text => "Congratulations Zhuo Xiu, you just sent an email with Mailgun!  You are truly awesome!  You can see a record of this email in your logs: https://mailgun.com/cp/log .  You can send up to 300 emails/day from this sandbox server.  Next, you should add your own domain so you can send 10,000 emails/month for free."
   end

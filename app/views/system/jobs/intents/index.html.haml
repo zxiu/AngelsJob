@@ -1,0 +1,13 @@
+Intents
+= link_to "New", new_intent_path
+
+- @intents.each do |intent|
+  %p
+    .card.card-block
+      %h4
+        = "#{intent.keywords}"
+      %p.card-text
+        = "#{intent.branch}, #{intent.job_type}"
+      %p
+        = link_to "Edit", edit_intent_path(intent.id)
+        = link_to "Delete", intent_path(intent.id), method: :delete, data: {confirm: "Really delete this record?"}

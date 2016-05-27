@@ -4,7 +4,7 @@ class CreateAgents < ActiveRecord::Migration
       t.string :name
       t.string :homepage
       t.string :logo
-      t.integer    :locate
+      t.integer    :country
       t.timestamps null: false
     end
   end

@@ -21,7 +21,7 @@
     = f.label :logo
     = f.text_field :logo
   .field
-    = f.label :locate
-    = f.select :locate, Agent.locates.keys.to_a
+    = f.label :country
+    = f.select :country, Agent.countries.keys.to_a
   .actions
     = f.submit 'Save'

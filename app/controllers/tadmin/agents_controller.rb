@@ -61,6 +61,6 @@ class Tadmin::AgentsController < TadminController
 
     # Never trust parameters from the scary internet, only allow the white list through.
     def agent_params
-      params.require(:agent).permit(:name, :homepage, :logo, :locate)
+      params.require(:agent).permit(:name, :homepage, :logo, :country)
     end
 end

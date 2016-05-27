@@ -17,7 +17,7 @@ ActiveRecord::Schema.define(version: 20160527093609) do
     t.string   "name",       limit: 255
     t.string   "homepage",   limit: 255
     t.string   "logo",       limit: 255
-    t.integer  "locate",     limit: 4
+    t.integer  "country",    limit: 4
     t.datetime "created_at",             null: false
     t.datetime "updated_at",             null: false
   end
@@ -59,12 +59,15 @@ ActiveRecord::Schema.define(version: 20160527093609) do
   add_index "education_infos", ["user_id"], name: "index_education_infos_on_user_id", using: :btree
 
   create_table "intents", force: :cascade do |t|
-    t.text     "keywords",   limit: 65535
-    t.integer  "branch",     limit: 4
-    t.integer  "type",       limit: 4
-    t.integer  "user_id",    limit: 4
-    t.datetime "created_at",               null: false
-    t.datetime "updated_at",               null: false
+    t.text     "keywords",    limit: 65535
+    t.integer  "branch",      limit: 4
+    t.integer  "job_type",    limit: 4
+    t.integer  "user_id",     limit: 4
+    t.string   "postal_code", limit: 255
+    t.integer  "distance",    limit: 4
+    t.boolean  "suspend",                   default: false
+    t.datetime "created_at",                                null: false
+    t.datetime "updated_at",                                null: false
   end
 
   create_table "personal_infos", force: :cascade do |t|

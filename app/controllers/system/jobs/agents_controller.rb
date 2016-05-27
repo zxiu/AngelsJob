@@ -2,7 +2,7 @@ class System::Jobs::AgentsController < System::JobsController
   before_action :set_agent, only: [:show, :edit, :update, :destroy]
 
   def index
-    @agents = current_user.agents
+    @agents = Agent.all
   end
 
   # GET /agents/new
@@ -31,15 +31,12 @@ class System::Jobs::AgentsController < System::JobsController
   end
 
   def update
-    respond_to do |format|
-      if @agent.update(agent_params)
-        format.html { redirect_to action: :index, notice: 'Education info was successfully updated.' }
-        format.json { render :show, status: :ok, location: @agent }
-      else
-        format.html { render :edit }
-        format.json { render json: @agent.errors, status: :unprocessable_entity }
-      end
+    if params[:checked].blank?
+      current_user.agents.delete(@agent)
+    else
+      current_user.agents << @agent
     end
+    redirect_to action: :index
   end
 
   # DELETE /agents/1
@@ -55,7 +52,7 @@ class System::Jobs::AgentsController < System::JobsController
   private
     # Use callbacks to share common setup or constraints between actions.
     def set_agent
-      @agent = current_user.agents.find(params[:id])
+      @agent = Agent.find(params[:id])
     end
 
     # Never trust parameters from the scary internet, only allow the white list through.

@@ -19,8 +19,7 @@ class Tadmin::AgentsController < TadminController
     @agent.update(agent_params)
     respond_to do |format|
       if @agent.save
-        current_user.agents << @agent
-        format.html { redirect_to action: :index, notice: 'Personal info was successfully created.' }
+        format.html { redirect_to action: :index, notice: 'Agent was successfully created.' }
         format.json { render :show, status: :created, location: @agent }
       else
         format.html { render :new }
@@ -57,7 +56,7 @@ class Tadmin::AgentsController < TadminController
   private
     # Use callbacks to share common setup or constraints between actions.
     def set_agent
-      @agent = current_user.agents.find(params[:id])
+      @agent = Agent.find(params[:id])
     end
 
     # Never trust parameters from the scary internet, only allow the white list through.

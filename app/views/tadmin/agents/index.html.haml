@@ -11,9 +11,6 @@
           = agent.name
         %p.card-text
           = agent.homepage
-        -# %p
-        -#   .row
-        -#     = render partial: 'shared/system/cvs/assets', locals: {assets: career_info.assets}
         %p
           = link_to "Edit", edit_tadmin_agent_path(agent.id)
           = link_to "Delete", tadmin_agent_path(agent.id), method: :delete, data: {confirm: "Really delete this record?"}

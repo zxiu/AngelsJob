@@ -1,1 +1,23 @@
-Show Agents
+%p.col.col-lg-12
+  Choose Agents
+%p
+  - @agents.each do |agent|
+    .col.col-lg-6
+      .card.card-block.container
+        .col-lg-11
+          %p
+            = image_tag agent.logo, class: [:logo]
+          %h4
+            = agent.name
+          %p.card-text
+            = agent.homepage
+        .col-lg-1
+          = form_for agent, data: { remote: true} do |f|
+            = check_box_tag "checked", "1", current_user.agents.include?(agent), onchange: "this.form.submit()"
+
+:css
+  .logo{
+    width: 200px;
+    height: 100px;
+    -o-object-fit: contain;
+  }

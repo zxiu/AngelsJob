@@ -3,7 +3,7 @@ class System::Cvs::PersonalInfosController < System::CvsController
 
   def show
     puts("show!!!")
-    UserMailer.welcome_mail(current_user).deliver_now
+    # UserMailer.welcome_mail(current_user).deliver_now
   end
 
   def edit

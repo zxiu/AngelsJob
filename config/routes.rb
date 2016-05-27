@@ -10,16 +10,19 @@ Rails.application.routes.draw do
 
   end
 
-  namespace :system do
-    resource :cvs, only: [:show]
-  end
 
   scope module: :system do
+    resource :cvs, only: [:show]
     scope module: :cvs do
       resource :personal_info, only: [:show, :edit, :update]
       resources :education_infos
       resources :career_infos
       resources :skills
+    end
+
+    resource :jobs, only: [:show]
+    scope module: :jobs do
+      resources :agents
     end
   end
 

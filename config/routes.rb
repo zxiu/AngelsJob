@@ -5,24 +5,28 @@ Rails.application.routes.draw do
   root :to => "system#index"
 
   get 'system' => 'system#index'
+  get 'tadmin' => 'tadmin#index'
 
-  resource :system do
 
-  end
-
-  namespace :system do
-    resource :settings, only: [:show]
-  end
-
-  namespace :system do
-    namespace :settings do
+  scope module: :system do
+    resource :cvs, only: [:show]
+    scope module: :cvs do
       resource :personal_info, only: [:show, :edit, :update]
-      resources :study_infos
+      resources :education_infos
       resources :career_infos
-      resources :extra_infos
+      resources :skills
+    end
+
+    resource :jobs, only: [:show]
+    scope module: :jobs do
+      resources :intents
+      resources :agents, only: [:index, :edit, :update]
     end
   end
 
+  namespace :tadmin do
+    resources :agents
+  end
 
 
 

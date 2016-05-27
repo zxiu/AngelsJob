@@ -1,0 +1,16 @@
+careerInfos
+= link_to "New", new_career_info_path
+
+- @career_infos.each do |career_info|
+  %p
+    .card.card-block
+      %h4
+        = "#{career_info.begin} - #{career_info.end}"
+      %p.card-text
+        = "#{career_info.employer}, #{career_info.position}, #{career_info.activity}"
+      %p
+        .row
+          = render partial: 'shared/system/cvs/assets', locals: {assets: career_info.assets}
+      %p
+        = link_to "Edit", edit_career_info_path(career_info.id)
+        = link_to "Delete", career_info_path(career_info.id), method: :delete, data: {confirm: "Really delete this record?"}

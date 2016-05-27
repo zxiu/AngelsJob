@@ -1,0 +1,10 @@
+%nav.navbar.navbar-light.bg-faded
+  %ul.nav.nav-pills
+    %li.nav-item
+      = link_to 'Admin Panel', tadmin_path, method: :get, class: ["navbar-brand","nav-link"]
+    %li.nav-item
+      = link_to 'Home', tadmin_path, class: ["nav-link"]
+    %li.nav-item
+      = link_to 'Agents', tadmin_agents_path, class: ["nav-link"]
+    %li.nav-item
+      = link_to 'Quit', root_path, class: ["nav-link"]

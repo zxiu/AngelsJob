@@ -4,7 +4,11 @@ class User < ActiveRecord::Base
   devise :database_authenticatable, :registerable,
          :recoverable, :rememberable, :trackable, :validatable,
          :confirmable, :lockable, :timeoutable, :omniauthable
-
+  enum role: [:user, :admin]
   has_one :personal_info
-  has_many :study_infos
+  has_many :education_infos
+  has_many :career_infos
+  has_many :skills
+  has_and_belongs_to_many :agents
+  has_many :intents
 end

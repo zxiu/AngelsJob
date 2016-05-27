@@ -7,10 +7,8 @@
     = csrf_meta_tags
   %body
     .container-fluid
-      Angel's Job System
       - unless notice.blank?
         %p.notice = notice
       - unless alert.blank?
         %p.alert = alert
       = render partial: "shared/system/nav_head"
-      = yield :content

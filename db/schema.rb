@@ -11,38 +11,93 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20160524113151) do
+ActiveRecord::Schema.define(version: 20160527093609) do
 
-  create_table "personal_infos", force: :cascade do |t|
-    t.string   "first_name", limit: 255
-    t.string   "last_name",  limit: 255
-    t.string   "email",      limit: 255
-    t.string   "tel",        limit: 255
-    t.string   "mobile",     limit: 255
-    t.date     "birthday"
-    t.integer  "gender",     limit: 4
+  create_table "agents", force: :cascade do |t|
+    t.string   "name",       limit: 255
+    t.string   "homepage",   limit: 255
+    t.string   "logo",       limit: 255
+    t.integer  "country",    limit: 4
     t.datetime "created_at",             null: false
     t.datetime "updated_at",             null: false
-    t.integer  "user_id",    limit: 4
   end
 
-  create_table "study_infos", force: :cascade do |t|
-    t.string   "insititude", limit: 255, null: false
+  create_table "agents_users", id: false, force: :cascade do |t|
+    t.integer "agent_id", limit: 4
+    t.integer "user_id",  limit: 4
+  end
+
+  add_index "agents_users", ["agent_id"], name: "index_agents_users_on_agent_id", using: :btree
+  add_index "agents_users", ["user_id"], name: "index_agents_users_on_user_id", using: :btree
+
+  create_table "career_infos", force: :cascade do |t|
+    t.string   "employer",   limit: 255,   null: false
+    t.string   "position",   limit: 255
+    t.text     "activity",   limit: 65535
+    t.date     "begin"
+    t.date     "end"
+    t.text     "extra",      limit: 65535
+    t.datetime "created_at",               null: false
+    t.datetime "updated_at",               null: false
+    t.integer  "user_id",    limit: 4
+    t.text     "assets",     limit: 65535
+  end
+
+  create_table "education_infos", force: :cascade do |t|
+    t.string   "insititude", limit: 255,   null: false
     t.string   "subject",    limit: 255
     t.date     "begin"
     t.date     "end"
     t.string   "graduation", limit: 255
     t.string   "score",      limit: 255
     t.integer  "user_id",    limit: 4
-    t.datetime "created_at",             null: false
-    t.datetime "updated_at",             null: false
+    t.datetime "created_at",               null: false
+    t.datetime "updated_at",               null: false
+    t.text     "assets",     limit: 65535
   end
 
-  add_index "study_infos", ["user_id"], name: "index_study_infos_on_user_id", using: :btree
+  add_index "education_infos", ["user_id"], name: "index_education_infos_on_user_id", using: :btree
+
+  create_table "intents", force: :cascade do |t|
+    t.text     "keywords",    limit: 65535
+    t.integer  "branch",      limit: 4
+    t.integer  "job_type",    limit: 4
+    t.integer  "user_id",     limit: 4
+    t.string   "postal_code", limit: 255
+    t.integer  "distance",    limit: 4
+    t.boolean  "suspend",                   default: false
+    t.datetime "created_at",                                null: false
+    t.datetime "updated_at",                                null: false
+  end
+
+  create_table "personal_infos", force: :cascade do |t|
+    t.string   "first_name", limit: 255
+    t.string   "last_name",  limit: 255
+    t.string   "tel",        limit: 255
+    t.string   "mobile",     limit: 255
+    t.string   "email",      limit: 255
+    t.date     "birthday"
+    t.integer  "gender",     limit: 4
+    t.datetime "created_at",               null: false
+    t.datetime "updated_at",               null: false
+    t.integer  "user_id",    limit: 4
+    t.text     "avatar",     limit: 65535
+  end
+
+  create_table "skills", force: :cascade do |t|
+    t.string   "name",       limit: 255,   null: false
+    t.string   "level",      limit: 255
+    t.integer  "catalog",    limit: 4
+    t.integer  "user_id",    limit: 4
+    t.datetime "created_at",               null: false
+    t.datetime "updated_at",               null: false
+    t.text     "assets",     limit: 65535
+  end
 
   create_table "users", force: :cascade do |t|
     t.string   "email",                  limit: 255, default: "", null: false
     t.string   "encrypted_password",     limit: 255, default: "", null: false
+    t.integer  "role",                   limit: 4,   default: 0,  null: false
     t.string   "reset_password_token",   limit: 255
     t.datetime "reset_password_sent_at"
     t.datetime "remember_created_at"
@@ -68,5 +123,5 @@ ActiveRecord::Schema.define(version: 20160524113151) do
   add_index "users", ["reset_password_token"], name: "index_users_on_reset_password_token", unique: true, using: :btree
   add_index "users", ["unlock_token"], name: "index_users_on_unlock_token", unique: true, using: :btree
 
-  add_foreign_key "study_infos", "users"
+  add_foreign_key "education_infos", "users"
 end

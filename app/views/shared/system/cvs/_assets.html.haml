@@ -1,0 +1,10 @@
+- assets.each do |asset, index|
+  .col-md-2
+    = link_to asset.url, target: :_blank do
+      %p
+        - if asset.is_image?
+          = image_tag asset.url, class: ["img-rounded"], width: 100
+        - if asset.is_pdf?
+          = asset.url 'icon-pdf', class: ["img-rounded"], width: 100
+      %p
+        = asset.file.filename

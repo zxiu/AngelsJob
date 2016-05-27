@@ -1,0 +1,27 @@
+- if params[:action].to_sym == :edit
+  - action = :update
+  - method = :patch
+- elsif params[:action].to_sym == :new
+  - action = :create
+  - method = :post
+= form_for :agent, url: url_for(controller: params[:controller], action: action), method: method do |f|
+  - if @agent.errors.any?
+    #error_explanation
+      %h2= "#{pluralize(@agent.errors.count, "error")} prohibited this agent from being saved:"
+      %ul
+        - @agent.errors.full_messages.each do |msg|
+          %li= msg
+  .field
+    = f.label :name
+    = f.text_field :name
+  .field
+    = f.label :homepage
+    = f.text_field :homepage
+  .field
+    = f.label :logo
+    = f.text_field :logo
+  .field
+    = f.label :country
+    = f.select :country, Agent.countries.keys.to_a
+  .actions
+    = f.submit 'Save'

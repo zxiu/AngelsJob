@@ -1,0 +1,29 @@
+%p#notice= notice
+
+%p
+  %b Avatar:
+  = image_tag @personal_info.avatar_url.to_s, class: ["img-thumbnail"], width: 100
+%p
+  %b First name:
+  = @personal_info.first_name
+%p
+  %b Last name:
+  = @personal_info.last_name
+%p
+  %b Email:
+  = @personal_info.email
+%p
+  %b Tel:
+  = @personal_info.tel
+%p
+  %b Mobile:
+  = @personal_info.mobile
+%p
+  %b Birthday:
+  = @personal_info.birthday
+%p
+  %b Gender:
+  = @personal_info.gender
+
+= link_to 'Edit', edit_personal_info_path(@personal_info)
+-# = link_to 'Back', personal_infos_path

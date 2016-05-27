@@ -1,0 +1,11 @@
+# Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
+
+one:
+  keyword: 
+  branch: 
+  type: 
+
+two:
+  keyword: 
+  branch: 
+  type: 

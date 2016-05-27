@@ -1,5 +1,5 @@
 class AddAvatarToPersonalInfos < ActiveRecord::Migration
   def change
-    add_column :personal_infos, :avatar, :string
+    add_column :personal_infos, :avatar, :text
   end
 end

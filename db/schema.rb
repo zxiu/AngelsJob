@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20160527085843) do
+ActiveRecord::Schema.define(version: 20160527093609) do
 
   create_table "agents", force: :cascade do |t|
     t.string   "name",       limit: 255
@@ -22,7 +22,13 @@ ActiveRecord::Schema.define(version: 20160527085843) do
     t.datetime "updated_at",             null: false
   end
 
-  add_index "agents", ["domain"], name: "index_agents_on_domain", unique: true, using: :btree
+  create_table "agents_users", id: false, force: :cascade do |t|
+    t.integer "agent_id", limit: 4
+    t.integer "user_id",  limit: 4
+  end
+
+  add_index "agents_users", ["agent_id"], name: "index_agents_users_on_agent_id", using: :btree
+  add_index "agents_users", ["user_id"], name: "index_agents_users_on_user_id", using: :btree
 
   create_table "career_infos", force: :cascade do |t|
     t.string   "employer",   limit: 255,   null: false

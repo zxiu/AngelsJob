@@ -7,6 +7,5 @@ class CreateAgents < ActiveRecord::Migration
       t.integer    :type
       t.timestamps null: false
     end
-    add_index :agents, :domain, :unique => true
   end
 end

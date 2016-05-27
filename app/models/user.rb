@@ -9,5 +9,6 @@ class User < ActiveRecord::Base
   has_many :education_infos
   has_many :career_infos
   has_many :skills
+  has_and_belongs_to_many :agents
   has_many :intents
 end

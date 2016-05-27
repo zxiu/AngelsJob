@@ -1,27 +1,27 @@
 class System::Jobs::AgentsController < System::JobsController
-  before_action :set_skill, only: [:show, :edit, :update, :destroy]
+  before_action :set_agent, only: [:show, :edit, :update, :destroy]
 
   def index
-    @skills = current_user.skills.order(:catalog)
+    @agents = current_user.agents
   end
 
-  # GET /skills/new
+  # GET /agents/new
   def new
-    @skill = Skill.new
+    @agent = Agent.new
   end
 
-  # POST /skills
-  # POST /skills.json
+  # POST /agents
+  # POST /agents.json
   def create
-    @skill = Skill.new(skill_params)
+    @agent = Agent.new(agent_params)
     respond_to do |format|
-      if @skill.save
-        current_user.skills << @skill
+      if @agent.save
+        current_user.agents << @agent
         format.html { redirect_to action: :index, notice: 'Personal info was successfully created.' }
-        format.json { render :show, status: :created, location: @skill }
+        format.json { render :show, status: :created, location: @agent }
       else
         format.html { render :new }
-        format.json { render json: @skill.errors, status: :unprocessable_entity }
+        format.json { render json: @agent.errors, status: :unprocessable_entity }
       end
     end
   end
@@ -32,20 +32,20 @@ class System::Jobs::AgentsController < System::JobsController
 
   def update
     respond_to do |format|
-      if @skill.update(skill_params)
+      if @agent.update(agent_params)
         format.html { redirect_to action: :index, notice: 'Education info was successfully updated.' }
-        format.json { render :show, status: :ok, location: @skill }
+        format.json { render :show, status: :ok, location: @agent }
       else
         format.html { render :edit }
-        format.json { render json: @skill.errors, status: :unprocessable_entity }
+        format.json { render json: @agent.errors, status: :unprocessable_entity }
       end
     end
   end
 
-  # DELETE /skills/1
-  # DELETE /skills/1.json
+  # DELETE /agents/1
+  # DELETE /agents/1.json
   def destroy
-    @skill.destroy
+    @agent.destroy
     respond_to do |format|
       format.html { redirect_to action: :index, notice: 'Personal info was successfully destroyed.' }
       format.json { head :no_content }
@@ -54,13 +54,13 @@ class System::Jobs::AgentsController < System::JobsController
 
   private
     # Use callbacks to share common setup or constraints between actions.
-    def set_skill
-      @skill = current_user.skills.find(params[:id])
+    def set_agent
+      @agent = current_user.agents.find(params[:id])
     end
 
     # Never trust parameters from the scary internet, only allow the white list through.
-    def skill_params
-      params.require(:skill).permit(:name, :level, :catalog, {assets: []})
+    def agent_params
+      params.require(:agent).permit(:name, :domain, :logo, :type)
     end
 
 end

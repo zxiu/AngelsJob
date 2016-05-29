@@ -2,7 +2,8 @@
 
 %p
   %b Avatar:
-  = image_tag @personal_info.avatar_url.to_s, class: ["img-thumbnail"], width: 100
+  - avatar_url = @personal_info.avatar_url.blank? ? 'noavatar' :  @personal_info.avatar_url.to_s
+  = image_tag avatar_url, class: ["img-thumbnail"], width: 100
 %p
   %b First name:
   = @personal_info.first_name
@@ -26,4 +27,4 @@
   = @personal_info.gender
 
 = link_to 'Edit', edit_personal_info_path(@personal_info)
--# = link_to 'Back', personal_infos_path
+-# = link_to 'Back', personal_info_path

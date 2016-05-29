@@ -1,32 +1,30 @@
-%h1 Listing personal_infos
+%p#notice= notice
 
-%table
-  %thead
-    %tr
-      %th Avatar
-      %th First name
-      %th Last name
-      %th Tel
-      %th Mobile
-      %th Birthday
-      %th Gender
-      %th
-      %th
-      %th
+%p
+  %b Avatar:
+  - avatar_url = @personal_info.avatar_url.blank? ? 'noavatar' :  @personal_info.avatar_url.to_s
+  = image_tag avatar_url, class: ["img-thumbnail"], width: 100
+%p
+  %b First name:
+  = @personal_info.first_name
+%p
+  %b Last name:
+  = @personal_info.last_name
+%p
+  %b Email:
+  = @personal_info.email
+%p
+  %b Tel:
+  = @personal_info.tel
+%p
+  %b Mobile:
+  = @personal_info.mobile
+%p
+  %b Birthday:
+  = @personal_info.birthday
+%p
+  %b Gender:
+  = @personal_info.gender
 
-  %tbody
-    - @personal_infos.each do |personal_info|
-      %tr
-        %td= personal_info.first_name
-        %td= personal_info.last_name
-        %td= personal_info.tel
-        %td= personal_info.mobile
-        %td= personal_info.birthday
-        %td= personal_info.gender
-        %td= link_to 'Show', personal_info
-        %td= link_to 'Edit', edit_personal_info_path(personal_info)
-        %td= link_to 'Destroy', personal_info, :method => :delete, :data => { :confirm => 'Are you sure?' }
-
-%br
-
-= link_to 'New Personal info', new_personal_info_path
+= link_to 'Edit', edit_personal_info_path(@personal_info)
+-# = link_to 'Back', personal_info_path

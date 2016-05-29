@@ -11,7 +11,7 @@ Rails.application.routes.draw do
   scope module: :system do
     resource :cvs, only: [:show]
     scope module: :cvs do
-      resource :personal_info, only: [:show, :edit, :update]
+      resources :personal_infos, only: [:index, :edit, :update]
       resources :education_infos
       resources :career_infos
       resources :skills

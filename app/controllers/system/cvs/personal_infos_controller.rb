@@ -1,8 +1,10 @@
 class System::Cvs::PersonalInfosController < System::CvsController
-  before_action :current_user_personal_info, only: [:show, :edit, :update]
+  before_action :current_user_personal_info, only: [:index, :show, :edit, :update]
+
+  def index
+  end
 
   def show
-    puts("show!!!")
     # UserMailer.welcome_mail(current_user).deliver_now
   end
 
@@ -11,9 +13,9 @@ class System::Cvs::PersonalInfosController < System::CvsController
 
   def update
     if @personal_info.update(personal_info_params)
-      redirect_to @personal_info, notice: 'Personal info was successfully updated.'
+      redirect_to action: :index, notice: 'Personal info was successfully updated.'
     else
-      render :show
+      render :index
     end
   end
 

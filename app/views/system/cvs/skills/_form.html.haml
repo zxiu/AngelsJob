@@ -10,10 +10,10 @@
     = f.text_field :name
   .field
     = f.label :level
-    = f.text_field :level
+    = f.select :level, Skill.levels.keys.to_a, include_blank: true
   .field
     = f.label :catalog
-    = f.text_field :catalog
+    = f.select :catalog, Skill.catalogs.keys.to_a
   .field
     = f.label :assets
     = f.file_field :assets, multiple: true

@@ -86,8 +86,9 @@ ActiveRecord::Schema.define(version: 20160527093609) do
 
   create_table "skills", force: :cascade do |t|
     t.string   "name",       limit: 255,   null: false
-    t.string   "level",      limit: 255
+    t.integer  "level",      limit: 4
     t.integer  "catalog",    limit: 4
+    t.string   "extra",      limit: 255
     t.integer  "user_id",    limit: 4
     t.datetime "created_at",               null: false
     t.datetime "updated_at",               null: false

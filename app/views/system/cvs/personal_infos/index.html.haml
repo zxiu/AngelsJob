@@ -3,27 +3,42 @@
   %b Avatar:
   - avatar_url = @personal_info.avatar_url.blank? ? 'noavatar' :  @personal_info.avatar_url.to_s
   = image_tag avatar_url, class: ["img-thumbnail"], width: 100
-%p
-  %b First name:
-  = @personal_info.first_name
-%p
-  %b Last name:
-  = @personal_info.last_name
-%p
-  %b Email:
-  = @personal_info.email
-%p
-  %b Tel:
-  = @personal_info.tel
-%p
-  %b Mobile:
-  = @personal_info.mobile
-%p
-  %b Birthday:
-  = @personal_info.birthday
-%p
-  %b Gender:
-  = @personal_info.gender
-
+.row
+  .col-lg-6
+    %p
+      %b First name:
+      = @personal_info.first_name
+    %p
+      %b Last name:
+      = @personal_info.last_name
+    %p
+      %b Email:
+      = @personal_info.email
+    %p
+      %b Tel:
+      = @personal_info.tel
+    %p
+      %b Mobile:
+      = @personal_info.mobile
+    %p
+      %b Birthday:
+      = @personal_info.birthday
+    %p
+      %b Gender:
+      = @personal_info.gender
+  .col-lg-6
+    %p
+      %b Street:
+      = @personal_info.address.street
+      = @personal_info.address.house_no
+    %p
+      %b City:
+      = @personal_info.address.city
+    %p
+      %b Postal Code:
+      = @personal_info.address.postal_code
+    %p
+      %b Country:
+      = @personal_info.address.country
 = link_to 'Edit', edit_personal_info_path(@personal_info)
 -# = link_to 'Back', personal_info_path

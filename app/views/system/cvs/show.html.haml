@@ -1,2 +1,27 @@
-Show cv
-= current_user.personal_info.address.inspect
+%table.table
+  %thead
+    %tr.row
+      %td.col-xs-3
+        %h5
+          = t 'personal_info'
+      %td.col-xs-1
+        %button.btn.btn-success
+          = fa_icon current_user.personal_info_checked? ? "check" : "close"
+    %tr.row
+      %td.col-xs-2
+        %h5
+          = t 'education_infos'
+      %td.col-xs-1
+        %button.btn.btn-success
+          = fa_icon current_user.education_infos_checked? ? "check" : "close"
+    %tr.row
+      %td.col-xs-2
+        %h5
+          = current_user.career_infos.count
+          = t 'career_infos'
+      %td.col-xs-1
+        %button.btn.btn-success
+          = fa_icon current_user.career_infos_checked? ? "check" : "close"
+
+= link_to "CV", edit_education_info_path(1), target: '_blank'
+= link_to "3D", edit_education_info_path(1), target: '_blank'

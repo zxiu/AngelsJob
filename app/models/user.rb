@@ -11,4 +11,21 @@ class User < ActiveRecord::Base
   has_many :skills
   has_and_belongs_to_many :agents
   has_many :intents
+
+  def personal_info_checked?
+    true
+  end
+
+  def education_infos_checked?
+    true
+  end
+
+  def career_infos_checked?
+    true
+  end
+
+  def skills_checked?
+    true
+  end
+
 end

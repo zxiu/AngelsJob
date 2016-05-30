@@ -5,17 +5,19 @@
       %ul
         - @skill.errors.full_messages.each do |msg|
           %li= msg
-  .field
-    = f.label :name
-    = f.text_field :name
-  .field
-    = f.label :level
-    = f.select :level, Skill.levels.keys.to_a, include_blank: true
-  .field
-    = f.label :catalog
-    = f.select :catalog, Skill.catalogs.keys.to_a
-  .field
-    = f.label :assets
-    = f.file_field :assets, multiple: true
-  .actions
-    = f.submit 'Save'
+  .row
+    .col-lg-6
+      .field
+        = f.label :name
+        = f.text_field :name
+      .field
+        = f.label :level
+        = f.select :level, Skill.levels.keys.to_a, include_blank: true
+      .field
+        = f.label :catalog
+        = f.select :catalog, Skill.catalogs.keys.to_a
+      .field
+        = f.label :assets
+        = f.file_field :assets, multiple: true
+      .actions
+        = f.submit 'Save'

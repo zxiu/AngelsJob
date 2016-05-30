@@ -50,6 +50,10 @@ gem 'omniauth'
 gem 'bootstrap', '~> 4.0.0.alpha3'
 gem 'autoprefixer-rails'
 
+# font-awesome-rails provides the Font-Awesome web fonts and stylesheets as a Rails engine for use with the asset pipeline.
+gem "font-awesome-rails"
+
+
 gem 'rest-client'
 
 source 'https://rails-assets.org' do

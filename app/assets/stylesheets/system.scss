@@ -12,4 +12,11 @@
  *
  */
 @import "bootstrap";
-@import "font-awesome";
+
+.field input {
+  float: right
+}
+
+.field select {
+  float: right
+}

@@ -19,3 +19,14 @@
         = link_to 'Admin Tools', tadmin_path, method: :get, class: ["dropdown-item"]
         .dropdown-divider
         = link_to 'Logout', destroy_user_session_path, method: :delete, class: ["dropdown-item"]
+    .pull-xs-right
+      %li.nav-item.dropdown
+        %a.nav-link.dropdown-toggle{"aria-expanded" => "false", "aria-haspopup" => "true", "data-toggle" => "dropdown", :href => "#", :role => "button"}
+          = I18n.locale
+        .dropdown-menu
+          %a.dropdown-item{:href => "#"} About
+          %a.dropdown-item{:href => "#"} Another action
+          %a.dropdown-item{:href => "#"} Something else here
+          = link_to 'Admin Tools', tadmin_path, method: :get, class: ["dropdown-item"]
+          .dropdown-divider
+          = link_to 'Logout', destroy_user_session_path, method: :delete, class: ["dropdown-item"]

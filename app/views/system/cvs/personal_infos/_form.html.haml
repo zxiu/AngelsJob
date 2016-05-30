@@ -5,33 +5,56 @@
       %ul
         - @personal_info.errors.full_messages.each do |msg|
           %li= msg
+  .row
+    .col-lg-6
+      %h4
+        Personal Info
+      .field
+        = f.label :first_name
+        = f.text_field :first_name
+      .field
+        = f.label :last_name
+        = f.text_field :last_name
+      .field
+        = f.label :email
+        = f.email_field :email
+      .field
+        = f.label :tel
+        = f.text_field :tel
+      .field
+        = f.label :mobile
+        = f.text_field :mobile
+      .field
+        = f.label :birthday
+        = f.date_select :birthday, start_year: 1950, include_blank: true
+      .field
+        = f.label :gender
+        = f.select :gender, PersonalInfo.genders.keys.to_a, include_blank: true
+      .field
+        = f.label :avatar
+        = f.file_field :avatar
+      .field
+        = f.label :remote_avatar_url, "or avatar URL"
+        = f.text_field :remote_avatar_url
+    .col-lg-6
+      %h4
+        Address
+      = fields_for :address, @personal_info.address do |fa|
+        .field
+          = fa.label :street
+          = fa.text_field :street
+        .field
+          = fa.label :house_no
+          = fa.text_field :house_no
+        .field
+          = fa.label :city
+          = fa.text_field :city
+        .field
+          = fa.label :postal_code
+          = fa.text_field :postal_code
+        .field
+          = fa.label :country
+          = fa.select :country, Address.countries.keys.to_a, include_blank: true
 
-  .field
-    = f.label :first_name
-    = f.text_field :first_name
-  .field
-    = f.label :last_name
-    = f.text_field :last_name
-  .field
-    = f.label :email
-    = f.email_field :email
-  .field
-    = f.label :tel
-    = f.text_field :tel
-  .field
-    = f.label :mobile
-    = f.text_field :mobile
-  .field
-    = f.label :birthday
-    = f.date_select :birthday, start_year: 1950, include_blank: true
-  .field
-    = f.label :gender
-    = f.select :gender, PersonalInfo.genders.keys.to_a, include_blank: true
-  .field
-    = f.label :avatar
-    = f.file_field :avatar
-  .field
-    = f.label :remote_avatar_url, "or avatar URL"
-    = f.text_field :remote_avatar_url
   .actions
     = f.submit 'Save'

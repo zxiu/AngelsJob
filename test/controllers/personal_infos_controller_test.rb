@@ -44,6 +44,6 @@ class PersonalInfosControllerTest < ActionController::TestCase
       delete :destroy, id: @personal_info
     end
 
-    assert_redirected_to personal_infos_path
+    assert_redirected_to personal_info_path
   end
 end

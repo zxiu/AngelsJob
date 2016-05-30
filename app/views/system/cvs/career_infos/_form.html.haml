@@ -5,23 +5,25 @@
       %ul
         - @career_info.errors.full_messages.each do |msg|
           %li= msg
-  .field
-    = f.label :employer
-    = f.text_field :employer
-  .field
-    = f.label :position
-    = f.text_field :position
-  .field
-    = f.label :activity
-    = f.text_field :activity
-  .field
-    = f.label :begin
-    = f.date_select :begin, start_year: 1950, include_blank: true, discard_day: true
-  .field
-    = f.label :end
-    = f.date_select :end, start_year: 1950, include_blank: true, discard_day: true
-  .field
-    = f.label :assets
-    = f.file_field :assets, multiple: true
-  .actions
-    = f.submit 'Save'
+  .row
+    .col-lg-6
+      .field
+        = f.label :employer
+        = f.text_field :employer
+      .field
+        = f.label :position
+        = f.text_field :position
+      .field
+        = f.label :activity
+        = f.text_field :activity
+      .field
+        = f.label :begin
+        = f.date_select :begin, start_year: 1950, include_blank: true, discard_day: true
+      .field
+        = f.label :end
+        = f.date_select :end, start_year: 1950, include_blank: true, discard_day: true
+      .field
+        = f.label :assets
+        = f.file_field :assets, multiple: true
+      .actions
+        = f.submit 'Save'

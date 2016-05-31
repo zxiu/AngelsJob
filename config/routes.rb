@@ -22,11 +22,15 @@ Rails.application.routes.draw do
       resources :intents
       resources :agents, only: [:index, :edit, :update]
     end
+
   end
 
   namespace :tadmin do
     resources :agents
   end
+
+  resources :show_cv, only: [:show]
+
 
 
 

@@ -29,7 +29,10 @@ Rails.application.routes.draw do
     resources :agents
   end
 
-  resources :show_cv, only: [:show]
+  namespace :extern do
+    resources :show_cv, only: [:show]
+  end
+
 
 
 

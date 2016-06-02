@@ -20,7 +20,8 @@ Rails.application.routes.draw do
     resource :jobs, only: [:show]
     scope module: :jobs do
       resources :intents
-      resources :agents, only: [:index, :edit, :update]
+      resources :agents, only: [:index, :show, :edit, :update]
+      resources :offers
     end
 
   end

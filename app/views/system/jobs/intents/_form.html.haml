@@ -5,20 +5,22 @@
       %ul
         - @intent.errors.full_messages.each do |msg|
           %li= msg
-  .field
-    = f.label :keywords
-    = f.text_field :keywords
-  .field
-    = f.label :branch
-    = f.select :branch, Intent.branches.keys.to_a, include_blank: true
-  .field
-    = f.label :job_type
-    = f.select :job_type, Intent.job_types.keys.to_a, include_blank: true
-  .field
-    = f.label :postal_code
-    = f.text_field :postal_code
-  .field
-    = f.label :distance
-    = f.range_field :distance
-  .actions
-    = f.submit 'Save'
+  .row
+    .col-lg-6
+      .field
+        = f.label :keywords
+        = f.text_field :keywords
+      .field
+        = f.label :branch
+        = f.select :branch, Intent.branches.keys.to_a, include_blank: true
+      .field
+        = f.label :job_type
+        = f.select :job_type, Intent.job_types.keys.to_a, include_blank: true
+      .field
+        = f.label :postal_code
+        = f.text_field :postal_code
+      .field
+        = f.label :distance
+        = f.range_field :distance
+      .actions
+        = f.submit 'Save'

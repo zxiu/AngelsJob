@@ -26,3 +26,20 @@ admin.save
 Agent.create({name: 'Stepstone.de', homepage: 'https://www.stepstone.de/', logo: 'https://media.stepstone.com/modules/duplo/resources/images/stepstone-logo@2x.png', country: :de})
 Agent.create({name: 'Monster.de', homepage: 'http://www.monster.de/', logo: 'http://media.newjobs.com/niche/images/monster-new-lg.png', country: :de})
 Agent.create({name: 'Job.de', homepage: 'http://job.de/', logo: 'http://www.isironline.org/wp-content/uploads/2014/09/Job.jpg', country: :de})
+
+offer = Offer.new
+offer.title = "This is a dummy Job"
+offer.link = "http://dummy-job.de"
+offer.position = "Software developer"
+offer.online_at = Time.now
+offer.company = Company.new
+offer.company.name = "Dream company"
+offer.company.homepage = "http://dreamcompany.de"
+offer.contact = Contact.new
+offer.contact.first_name = "Vovo"
+offer.contact.last_name = "Lilly"
+offer.contact.email = "vovllilly@dreamcompany.de"
+offer.contact.female!
+offer.save
+
+admin.offers << offer

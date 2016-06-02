@@ -66,7 +66,6 @@ ActiveRecord::Schema.define(version: 20160602094855) do
   create_table "companies", force: :cascade do |t|
     t.string   "name",       limit: 255
     t.string   "homepage",   limit: 255
-    t.integer  "agent_id",   limit: 4
     t.datetime "created_at",             null: false
     t.datetime "updated_at",             null: false
   end
@@ -115,10 +114,12 @@ ActiveRecord::Schema.define(version: 20160602094855) do
   create_table "offers", force: :cascade do |t|
     t.string   "title",      limit: 255
     t.string   "link",       limit: 255
+    t.string   "position",   limit: 255
     t.text     "content",    limit: 65535
     t.integer  "user_id",    limit: 4
     t.integer  "company_id", limit: 4
     t.integer  "agent_id",   limit: 4
+    t.date     "online_at"
     t.datetime "created_at",               null: false
     t.datetime "updated_at",               null: false
   end

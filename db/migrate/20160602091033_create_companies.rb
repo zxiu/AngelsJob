@@ -3,7 +3,6 @@ class CreateCompanies < ActiveRecord::Migration
     create_table :companies do |t|
       t.string :name
       t.string :homepage
-      t.belongs_to :agent
       t.timestamps null: false
     end
   end

@@ -1,0 +1,27 @@
+Offers
+= link_to "New", new_offer_path
+
+- @offers.each do |offer|
+  %p
+    .card.card-block
+      %p
+        %b
+          = link_to offer.title, offer.link, target: :_blank
+        %i
+          = "(#{offer.position})"
+        .pull-lg-right
+          = offer.online_at
+      .card-text
+        %p
+          = offer.company.name
+          = link_to offer.company.homepage
+        %p
+          %span
+            = offer.contact.full_name_with_title
+            = mail_to offer.contact.email
+        %p
+          = offer.applications.count
+        -# = "#{offer.branch}, #{offer.job_type}"
+      %p
+        = link_to "Edit", edit_offer_path(offer.id)
+        = link_to "Delete", offer_path(offer.id), method: :delete, data: {confirm: "Really delete this record?"}

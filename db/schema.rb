@@ -114,7 +114,7 @@ ActiveRecord::Schema.define(version: 20160602094855) do
 
   create_table "offers", force: :cascade do |t|
     t.string   "title",      limit: 255
-    t.string   "reference",  limit: 255
+    t.string   "link",       limit: 255
     t.text     "content",    limit: 65535
     t.integer  "user_id",    limit: 4
     t.integer  "company_id", limit: 4

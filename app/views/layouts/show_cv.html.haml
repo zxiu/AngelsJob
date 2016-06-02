@@ -9,25 +9,5 @@
     = javascript_include_tag 'tags3d', 'data-turbolinks-track' => true
     = csrf_meta_tags
   %body
-  #tags
-    %a{:href => "http://www.miaov.com"} JS课程
-    %a.red{:href => "http://www.miaov.com/course_outline_1.html.php"} 教程
-    %a{:href => "http://www.miaov.com"} 试听
-    %a{:href => "http://www.miaov.com"} 精品
-    %a.blue{:href => "http://www.miaov.com"} 妙味课堂
-    %a{:href => "http://blog.miaov.com/722.html"} SEO
-    %a.red{:href => "http://www.miaov.com"} 特效
-    %a.yellow{:href => "http://www.miaov.com/course.html.php"} JavaScript
-    %a{:href => "http://www.miaov.com/course_detail_1.html.php"} miaov
-    %a.red{:href => "http://www.miaov.com/course_detail_2.html.php"} CSS
-    %a{:href => "http://www.miaov.com/course_detail_3.html.php"} 求职
-    %a.blue{:href => "http://www.miaov.com/course_detail_2.html.php"} 面试题
-    %a{:href => "http://www.miaov.com/contact.html.php"} 继承
-    %a.red{:href => "http://www.miaov.com/"} 妙味课堂
-    %a.blue{:href => "http://www.miaov.com/about.html.php"} OOP
-    %a{:href => "http://www.miaov.com/work.html.php"} XHTML
-    %a.blue{:href => "http://www.miaov.com/message.html.php"} setInterval
-    %a{:href => "http://blog.miaov.com/"} W3C
-    %a{:href => "http://blog.miaov.com/716.html"} 石川
-    %a.yellow{:href => "http://www.miaov.com/"} 妙味课堂
-    %a{:href => "http://blog.miaov.com/676.html"} blue
+    = yield
+  

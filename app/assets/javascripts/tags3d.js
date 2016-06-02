@@ -20,7 +20,7 @@ var oDiv = null;
 
 window.onload = function() {
   oDiv = document.getElementById('tags');
-  aA = oDiv.getElementsByTagName('a');
+  aA = oDiv.getElementsByTagName('span');
   for (var i = 0; i < aA.length; i++) {
     var oTag = {};
     oTag.offsetWidth = aA[i].offsetWidth;
@@ -31,10 +31,10 @@ window.onload = function() {
   sineCosine(0, 0, 0);
 
   positionAll();
-
-  oDiv.onmouseover = function() {
-    active = true;
-  };
+	//
+  // oDiv.onmouseover = function() {
+  //   active = true;
+  // };
 
   oDiv.onmouseout = function() {
     active = false;
@@ -49,6 +49,14 @@ window.onload = function() {
     mouseX /= 5;
     mouseY /= 5;
   };
+
+	oDiv.onmousedown = function(){
+		active = true;
+	}
+
+	oDiv.onmouseup = function(){
+		active = false;
+	}
 
   setInterval(update, 30);
 };

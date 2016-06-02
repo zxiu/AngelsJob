@@ -23,5 +23,5 @@
         %button.btn.btn-success
           = fa_icon current_user.career_infos_checked? ? "check" : "close"
 
-= link_to "CV", extern_show_cv_path(current_user.id), target: '_blank'
+= link_to "CV", show_cv_path(current_user.id), target: '_blank'
 = link_to "3D", edit_education_info_path(1), target: '_blank'

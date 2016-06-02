@@ -29,9 +29,16 @@ Rails.application.routes.draw do
     resources :agents
   end
 
-  namespace :extern do
-    resources :show_cv, only: [:show]
-  end
+  # namespace :extern do
+  #   resources :show_cv, only: [:show] do
+  #     member do
+  #       get "what"
+  #     end
+  #   end
+  # end
+
+  get 'show_cv/:id' => 'extern/show_cv#show', as: :show_cv
+  get 'show_cv/:id/what/:what' => 'extern/show_cv#what', as: :show_cv_what
 
 
 

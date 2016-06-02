@@ -1,23 +1,26 @@
-#tags
-  %span.tag
-    = link_to "Personal Info", personal_infos_path, remote: true
-  %span.tag.red{:href => "http://www.miaov.com/course_outline_1.html.php"} 教程
-  %span.tag{:href => "http://www.miaov.com"} 试听
-  %span.tag{:href => "http://www.miaov.com"} 精品
-  %span.tag.blue{:href => "http://www.miaov.com"} 妙味课堂
-  %span.tag{:href => "http://blog.miaov.com/722.html"} SEO
-  %span.tag.red{:href => "http://www.miaov.com"} 特效
-  %span.tag.green{:href => "http://www.miaov.com/course.html.php"} JavaScript
-  %span.tag{:href => "http://www.miaov.com/course_detail_1.html.php"} miaov
-  %span.tag.red{:href => "http://www.miaov.com/course_detail_2.html.php"} CSS
-  %span.tag{:href => "http://www.miaov.com/course_detail_3.html.php"} 求职
-  %span.tag.blue{:href => "http://www.miaov.com/course_detail_2.html.php"} 面试题
-  %span.tag{:href => "http://www.miaov.com/contact.html.php"} 继承
-  %span.tag.red{:href => "http://www.miaov.com/"} 妙味课堂
-  %span.tag.blue{:href => "http://www.miaov.com/about.html.php"} OOP
-  %span.tag{:href => "http://www.miaov.com/work.html.php"} XHTML
-  %span.tag.blue{:href => "http://www.miaov.com/message.html.php"} setInterval
-  %span.tag{:href => "http://blog.miaov.com/"} W3C
-  %span.tag{:href => "http://blog.miaov.com/716.html"} 石川
-  %span.tag.green{:href => "http://www.miaov.com/"} 妙味课堂
-  %span.tag{:href => "http://blog.miaov.com/676.html"} blue
+.row
+  #tags.col-lg-5
+    %span.tag
+      = link_to "Personal Info", show_cv_what_path(what: :personal_info), remote: true
+    %span.tag.red{:href => "http://www.miaov.com/course_outline_1.html.php"} 教程
+    %span.tag{:href => "http://www.miaov.com"} 试听
+    %span.tag{:href => "http://www.miaov.com"} 精品
+    %span.tag.blue{:href => "http://www.miaov.com"} 妙味课堂
+    %span.tag{:href => "http://blog.miaov.com/722.html"} SEO
+    %span.tag.red{:href => "http://www.miaov.com"} 特效
+    %span.tag.green{:href => "http://www.miaov.com/course.html.php"} JavaScript
+    %span.tag{:href => "http://www.miaov.com/course_detail_1.html.php"} miaov
+    %span.tag.red{:href => "http://www.miaov.com/course_detail_2.html.php"} CSS
+    %span.tag{:href => "http://www.miaov.com/course_detail_3.html.php"} 求职
+    %span.tag.blue{:href => "http://www.miaov.com/course_detail_2.html.php"} 面试题
+    %span.tag{:href => "http://www.miaov.com/contact.html.php"} 继承
+    %span.tag.red{:href => "http://www.miaov.com/"} 妙味课堂
+    %span.tag.blue{:href => "http://www.miaov.com/about.html.php"} OOP
+    %span.tag{:href => "http://www.miaov.com/work.html.php"} XHTML
+    %span.tag.blue{:href => "http://www.miaov.com/message.html.php"} setInterval
+    %span.tag{:href => "http://blog.miaov.com/"} W3C
+    %span.tag{:href => "http://blog.miaov.com/716.html"} 石川
+    %span.tag.green{:href => "http://www.miaov.com/"} 妙味课堂
+    %span.tag{:href => "http://blog.miaov.com/676.html"} blue
+  #what.col-lg-7
+    

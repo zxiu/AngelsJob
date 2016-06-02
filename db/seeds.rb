@@ -43,3 +43,7 @@ offer.contact.female!
 offer.save
 
 admin.offers << offer
+
+admin.intents << Intent.new({keywords: ["Java", "Android", "Ruby"]})
+
+admin.save

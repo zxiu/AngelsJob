@@ -1,7 +1,7 @@
 class CreateIntents < ActiveRecord::Migration
   def change
     create_table :intents do |t|
-      t.text :keywords
+      t.string :keywords
       t.integer :branch
       t.integer :job_type
       t.integer :user_id

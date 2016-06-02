@@ -100,7 +100,7 @@ ActiveRecord::Schema.define(version: 20160602094855) do
   add_index "education_infos", ["user_id"], name: "index_education_infos_on_user_id", using: :btree
 
   create_table "intents", force: :cascade do |t|
-    t.text     "keywords",    limit: 65535
+    t.string   "keywords",    limit: 255
     t.integer  "branch",      limit: 4
     t.integer  "job_type",    limit: 4
     t.integer  "user_id",     limit: 4

@@ -20,8 +20,11 @@ Offers
             = offer.contact.full_name_with_title
             = mail_to offer.contact.email
         %p
+          = t "#{:applications}:"
           = offer.applications.count
         -# = "#{offer.branch}, #{offer.job_type}"
       %p
-        = link_to "Edit", edit_offer_path(offer.id)
-        = link_to "Delete", offer_path(offer.id), method: :delete, data: {confirm: "Really delete this record?"}
+        = link_to "Apply this offer", ""
+        %row.pull-lg-right
+          = link_to "Edit", edit_offer_path(offer.id)
+          = link_to "Delete", offer_path(offer.id), method: :delete, data: {confirm: "Really delete this record?"}

@@ -32,6 +32,7 @@ class System::Jobs::IntentsController < System::JobsController
 
   def update
     respond_to do |format|
+      @intent.keywords = params.require(:intent)[:keywords].split(",").map(&:strip)
       if @intent.update(intent_params)
         format.html { redirect_to action: :index, notice: 'intent was successfully updated.' }
         format.json { render :show, status: :ok, location: @intent }
@@ -60,6 +61,6 @@ class System::Jobs::IntentsController < System::JobsController
 
     # Never trust parameters from the scary internet, only allow the white list through.
     def intent_params
-      params.require(:intent).permit(:keywords, :branch, :job_type, :suspend, :postal_code, :distance)
+      params.require(:intent).permit(:branch, :job_type, :suspend, :postal_code, :distance)
     end
 end

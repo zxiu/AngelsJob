@@ -9,7 +9,7 @@
     .col-lg-6
       .field
         = f.label :keywords
-        = f.text_field :keywords
+        = f.text_field :keywords, value: @intent.keywords.join(", ")
       .field
         = f.label :branch
         = f.select :branch, Intent.branches.keys.to_a, include_blank: true

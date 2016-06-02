@@ -8,8 +8,8 @@ class CreateContacts < ActiveRecord::Migration
       t.integer :gender
       t.string :tel
       t.string :mobile
-      
-      t.reference :contactable, polymorphic: true
+
+      t.references :contactable, polymorphic: true
       t.timestamps null: false
     end
   end

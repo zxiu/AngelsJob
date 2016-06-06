@@ -8,6 +8,7 @@ class System::Jobs::ApplicationsController < System::JobsController
   # GET /applications/new
   def new
     @application = Application.new
+    @application.offer = current_user.offers.find(params[:offer_id])
   end
 
   # POST /applications

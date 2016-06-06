@@ -58,6 +58,10 @@ class System::Jobs::OffersController < System::JobsController
     end
   end
 
+  def apply
+    redirect_to new_application_path(offer_id: params[:offer_id])
+  end
+
   private
     # Use callbacks to share common setup or constraints between actions.
     def set_offer

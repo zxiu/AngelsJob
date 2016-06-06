@@ -44,7 +44,7 @@ ActiveRecord::Schema.define(version: 20160602094855) do
 
   create_table "applications", force: :cascade do |t|
     t.integer  "offer_id",   limit: 4
-    t.text     "cover_text", limit: 65535
+    t.text     "cover_letter", limit: 65535
     t.datetime "created_at",               null: false
     t.datetime "updated_at",               null: false
   end

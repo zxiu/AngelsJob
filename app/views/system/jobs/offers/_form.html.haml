@@ -1,0 +1,85 @@
+= form_for @offer do |f|
+  - if @offer.errors.any?
+    #error_explanation
+      %h2= "#{pluralize(@offer.errors.count, "error")} prohibited this offer from being saved:"
+      %ul
+        - @offer.errors.full_messages.each do |msg|
+          %li= msg
+  .row
+    .col-lg-4
+      %h4
+        = f.label :offer
+      .field
+        = f.label :title
+        = f.text_field :title
+      .field
+        = f.label :position
+        = f.text_field :position
+      .field
+        = f.label :link
+        = f.text_field :link
+      .field
+        = f.label :online_at
+        = f.date_select :online_at, order: [:year, :month, :day]
+      = fields_for :agent, @offer.agent do |fa|
+        .field
+          = fa.label :agent
+          = fa.select :id, options_from_collection_for_select(Agent.all, :id, :name, @offer.agent.blank? ? 0 : @offer.agent.id ), include_blank: true
+    .col-lg-4
+      %h4
+        = f.label :company
+      = fields_for :company, @offer.company do |fc|
+        .field
+          = fc.label :name
+          = fc.text_field :name
+        .field
+          = fc.label :homepage
+          = fc.text_field :homepage
+
+    .col-lg-4
+      %h4
+        = f.label :contact
+      = fields_for :contact, @offer.contact do |fc|
+        .field
+          = fc.label :first_name
+          = fc.text_field :first_name
+        .field
+          = fc.label :last_name
+          = fc.text_field :last_name
+        .field
+          = fc.label :email
+          = fc.text_field :email
+        .field
+          = fc.label :gender
+          = fc.select :gender, Contact.genders.keys, include_blank: true
+        .field
+
+
+  -# .field
+  -#   = f.label :job_type
+  -#   = f.select :job_type, offer.job_types.keys.to_a, include_blank: true
+  -# .field
+  -#   = f.label :postal_code
+  -#   = f.text_field :postal_code
+  -# .field
+  -#   = f.label :distance
+  -#   = f.range_field :distance
+
+  -# = fields_for :address, @personal_info.address do |fa|
+  -#   .field
+  -#     = fa.label :street
+  -#     = fa.text_field :street
+  -#   .field
+  -#     = fa.label :house_no
+  -#     = fa.text_field :house_no
+  -#   .field
+  -#     = fa.label :city
+  -#     = fa.text_field :city
+  -#   .field
+  -#     = fa.label :postal_code
+  -#     = fa.text_field :postal_code
+  -#   .field
+  -#     = fa.label :country
+  -#     = fa.select :country, Address.countries.keys.to_a, include_blank: true
+  .actions
+    = f.submit 'Save'

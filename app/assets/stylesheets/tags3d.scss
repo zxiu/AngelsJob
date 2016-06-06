@@ -1,0 +1,52 @@
+body {
+    background: white url(index.png) no-repeat center 230px;
+}
+#tags {
+    position: relative;
+    width: 450px;
+    height: 450px;
+    margin: 20px 0px 0;
+    cursor: move;
+    background: white
+}
+#tags .tag {
+    position: absolute;
+    top: 0px;
+    left: 0px;
+    font-family: Microsoft YaHei;
+    color: black;
+    font-weight: bold;
+    text-decoration: none;
+    padding: 3px 6px;
+    -webkit-user-select: none; /* Chrome/Safari */
+    -moz-user-select: none; /* Firefox */
+    -ms-user-select: none;
+}
+#tags .tag:hover {
+    border: 1px outset #666;
+    background: #eee;
+}
+#tags .tag.green {
+    color: green;
+}
+#tags .tag.blue {
+    color: blue;
+}
+#tags .tag.red {
+    color: red;
+}
+#tags .tag.yellow {
+    color: yellow;
+}
+p {
+    font: 16px Microsoft YaHei;
+    text-align: center;
+    color: #ba0c0c;
+}
+p a {
+    font-size: 14px;
+    color: #ba0c0c;
+}
+p a:hover {
+    color: red;
+}

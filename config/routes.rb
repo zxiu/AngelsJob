@@ -20,13 +20,23 @@ Rails.application.routes.draw do
     resource :jobs, only: [:show]
     scope module: :jobs do
       resources :intents
-      resources :agents, only: [:index, :edit, :update]
+      resources :agents, only: [:index, :show, :edit, :update]
+      resources :offers do
+        post action: :apply, as: :apply
+      end
+      resources :applications
     end
+
   end
 
   namespace :tadmin do
     resources :agents
   end
+
+  get 'show_cv/:id' => 'extern/show_cv#show', as: :show_cv
+  get 'show_cv/:id/what/:what' => 'extern/show_cv#what', as: :show_cv_what
+
+
 
 
 

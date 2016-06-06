@@ -1,0 +1,22 @@
+form application
+%p= @application.inspect
+%p= @application.offer.inspect
+%p= @application.offer.contact.inspect
+= form_for @application do |f|
+  - if @application.errors.any?
+    #error_explanation
+      %h2= "#{pluralize(@application.errors.count, "error")} prohibited this application from being saved:"
+      %ul
+        - @application.errors.full_messages.each do |msg|
+          %li= msg
+  = f.label :cover_letter
+  %p
+    = f.text_area :cover_letter, value: :haha, rows: 30
+  .actions
+    = f.submit 'Save'
+
+
+:css
+  textarea {
+    width: 100%;
+  }

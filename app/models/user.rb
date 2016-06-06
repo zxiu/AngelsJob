@@ -11,6 +11,8 @@ class User < ActiveRecord::Base
   has_many :skills
   has_and_belongs_to_many :agents
   has_many :intents
+  has_many :offers
+  has_many :applications, through: :offers
 
   def personal_info_checked?
     true

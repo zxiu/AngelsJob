@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20160530135929) do
+ActiveRecord::Schema.define(version: 20160602094855) do
 
   create_table "addresses", force: :cascade do |t|
     t.string   "street",         limit: 255
@@ -42,6 +42,13 @@ ActiveRecord::Schema.define(version: 20160530135929) do
   add_index "agents_users", ["agent_id"], name: "index_agents_users_on_agent_id", using: :btree
   add_index "agents_users", ["user_id"], name: "index_agents_users_on_user_id", using: :btree
 
+  create_table "applications", force: :cascade do |t|
+    t.integer  "offer_id",   limit: 4
+    t.text     "cover_letter", limit: 65535
+    t.datetime "created_at",               null: false
+    t.datetime "updated_at",               null: false
+  end
+
   create_table "career_infos", force: :cascade do |t|
     t.string   "employer",   limit: 255,   null: false
     t.string   "position",   limit: 255
@@ -53,6 +60,27 @@ ActiveRecord::Schema.define(version: 20160530135929) do
     t.datetime "updated_at",               null: false
     t.integer  "user_id",    limit: 4
     t.text     "assets",     limit: 65535
+  end
+
+  create_table "companies", force: :cascade do |t|
+    t.string   "name",       limit: 255
+    t.string   "homepage",   limit: 255
+    t.datetime "created_at",             null: false
+    t.datetime "updated_at",             null: false
+  end
+
+  create_table "contacts", force: :cascade do |t|
+    t.string   "first_name",       limit: 255
+    t.string   "last_name",        limit: 255
+    t.string   "email",            limit: 255
+    t.integer  "title",            limit: 4
+    t.integer  "gender",           limit: 4
+    t.string   "tel",              limit: 255
+    t.string   "mobile",           limit: 255
+    t.integer  "contactable_id",   limit: 4
+    t.string   "contactable_type", limit: 255
+    t.datetime "created_at",                   null: false
+    t.datetime "updated_at",                   null: false
   end
 
   create_table "education_infos", force: :cascade do |t|
@@ -71,7 +99,7 @@ ActiveRecord::Schema.define(version: 20160530135929) do
   add_index "education_infos", ["user_id"], name: "index_education_infos_on_user_id", using: :btree
 
   create_table "intents", force: :cascade do |t|
-    t.text     "keywords",    limit: 65535
+    t.string   "keywords",    limit: 255
     t.integer  "branch",      limit: 4
     t.integer  "job_type",    limit: 4
     t.integer  "user_id",     limit: 4
@@ -80,6 +108,19 @@ ActiveRecord::Schema.define(version: 20160530135929) do
     t.boolean  "suspend",                   default: false
     t.datetime "created_at",                                null: false
     t.datetime "updated_at",                                null: false
+  end
+
+  create_table "offers", force: :cascade do |t|
+    t.string   "title",      limit: 255
+    t.string   "link",       limit: 255
+    t.string   "position",   limit: 255
+    t.text     "content",    limit: 65535
+    t.integer  "user_id",    limit: 4
+    t.integer  "company_id", limit: 4
+    t.integer  "agent_id",   limit: 4
+    t.date     "online_at"
+    t.datetime "created_at",               null: false
+    t.datetime "updated_at",               null: false
   end
 
   create_table "personal_infos", force: :cascade do |t|
@@ -94,6 +135,13 @@ ActiveRecord::Schema.define(version: 20160530135929) do
     t.datetime "updated_at",               null: false
     t.integer  "user_id",    limit: 4
     t.text     "avatar",     limit: 65535
+  end
+
+  create_table "show_cvs", force: :cascade do |t|
+    t.string   "hash",           limit: 255
+    t.integer  "application_id", limit: 4
+    t.datetime "created_at",                 null: false
+    t.datetime "updated_at",                 null: false
   end
 
   create_table "skills", force: :cascade do |t|

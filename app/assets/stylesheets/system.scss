@@ -13,10 +13,22 @@
  */
 @import "bootstrap";
 
+// .field {
+//   display: block !important;
+// }
+
 .field input {
   float: right
 }
 
 .field select {
+  float: right
+}
+
+.field input {
+  float: right
+}
+
+.field textarea {
   float: right
 }

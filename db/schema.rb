@@ -43,10 +43,11 @@ ActiveRecord::Schema.define(version: 20160602094855) do
   add_index "agents_users", ["user_id"], name: "index_agents_users_on_user_id", using: :btree
 
   create_table "applications", force: :cascade do |t|
-    t.integer  "offer_id",   limit: 4
+    t.integer  "offer_id",     limit: 4
     t.text     "cover_letter", limit: 65535
-    t.datetime "created_at",               null: false
-    t.datetime "updated_at",               null: false
+    t.datetime "applied_at"
+    t.datetime "created_at",                 null: false
+    t.datetime "updated_at",                 null: false
   end
 
   create_table "career_infos", force: :cascade do |t|
@@ -105,9 +106,9 @@ ActiveRecord::Schema.define(version: 20160602094855) do
     t.integer  "user_id",     limit: 4
     t.string   "postal_code", limit: 255
     t.integer  "distance",    limit: 4
-    t.boolean  "suspend",                   default: false
-    t.datetime "created_at",                                null: false
-    t.datetime "updated_at",                                null: false
+    t.boolean  "suspend",                 default: false
+    t.datetime "created_at",                              null: false
+    t.datetime "updated_at",                              null: false
   end
 
   create_table "offers", force: :cascade do |t|

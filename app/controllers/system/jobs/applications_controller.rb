@@ -1,6 +1,5 @@
 class System::Jobs::ApplicationsController < System::JobsController
   before_action :set_application, only: [:show, :edit, :update, :destroy]
-
   def index
     @applications = current_user.applications
   end
@@ -8,20 +7,22 @@ class System::Jobs::ApplicationsController < System::JobsController
   # GET /applications/new
   def new
     @application = Application.new
-    @application.offer = current_user.offers.find(params[:offer_id])
+    @application.offer = current_user.offers.find(params.require(:offer)[:id])
   end
 
   # POST /applications
   # POST /applications.json
   def create
     @application = Application.new(application_params)
-    @application.company = Company.new(company_params)
-    @application.contact = Contact.new(contact_params)
-    @application.agent = Agent.find_by(agent_params)
+    @application.offer = current_user.offers.find(params.require(:offer)[:id])
 
+    # @application.company = Company.new(company_params)
+    # @application.contact = Contact.new(contact_params)
+    # @application.agent = Agent.find_by(agent_params)
+    #
     respond_to do |format|
       if @application.save
-        current_user.applications << @application
+        # current_user.applications << @application
         format.html { redirect_to action: :index, notice: 'Application was successfully created.' }
         format.json { render :show, status: :created, location: @application }
       else
@@ -67,7 +68,7 @@ class System::Jobs::ApplicationsController < System::JobsController
 
     # Never trust parameters from the scary internet, only allow the white list through.
     def application_params
-      params.require(:application).permit(:title, :link, :position, :online_at)
+      params.require(:application).permit(:cover_letter, :link, :position, :online_at)
     end
 
     def agent_params

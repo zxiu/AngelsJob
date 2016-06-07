@@ -21,9 +21,7 @@ Rails.application.routes.draw do
     scope module: :jobs do
       resources :intents
       resources :agents, only: [:index, :show, :edit, :update]
-      resources :offers do
-        post action: :apply, as: :apply
-      end
+      resources :offers
       resources :applications
     end
 

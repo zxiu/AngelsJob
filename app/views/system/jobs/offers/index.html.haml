@@ -24,7 +24,7 @@ Offers
           = offer.applications.count
         -# = "#{offer.branch}, #{offer.job_type}"
       %p
-        = link_to "Apply this offer", offer_apply_path(offer.id), method: :post
+        = link_to "Apply this offer", new_application_path(offer:{id: offer.id}), method: :get
         %row.pull-lg-right
           = link_to "Edit", edit_offer_path(offer.id)
           = link_to "Delete", offer_path(offer.id), method: :delete, data: {confirm: "Really delete this record?"}

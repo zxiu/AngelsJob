@@ -21,8 +21,12 @@ Offers
             = mail_to offer.contact.email
         %p
           = t "#{:applications}:"
-          = offer.applications.count
+        %p
+          - offer.applications.each do |application|
+            .row.col-lg-12
+              = link_to (application.applied_at || application.created_at).to_s, application_path(application)
         -# = "#{offer.branch}, #{offer.job_type}"
+      %p
       %p
         = link_to "Apply this offer", new_application_path(offer:{id: offer.id}), method: :get
         %row.pull-lg-right

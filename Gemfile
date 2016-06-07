@@ -44,6 +44,9 @@ gem 'devise'
 # Haml-rails provides Haml generators for Rails 4.
 gem "haml-rails", "~> 0.9"
 
+# Liquid is a template engine which was written with very specific requirements:
+gem 'liquid-rails'
+
 gem 'omniauth'
 
 # Bootstrap 4 ruby gem for Ruby on Rails (Sprockets) and Compass.

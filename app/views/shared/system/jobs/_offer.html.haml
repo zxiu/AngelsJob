@@ -1,0 +1,14 @@
+%b
+  = link_to offer.title, offer.link, target: :_blank
+%i
+  = "(#{offer.position})"
+.pull-lg-right
+  = offer.online_at
+.card-text
+%p
+  = offer.company.name
+  = link_to offer.company.homepage
+%p
+  %span
+    = offer.contact.full_name_with_title
+    = mail_to offer.contact.email

@@ -1,0 +1,13 @@
+= render partial: 'shared/system/jobs/offer', locals: {offer: @application.offer}
+
+%textarea{disabled: @application.applied?}
+  = @application.cover_letter
+
+- if @application.applied?
+  = @application.applied_at
+- else
+  = link_to :apply, offer_apply_path(id:  @application.offer.id, application_id:  @application.id), method: :post
+:css
+  textarea {
+    width: 100%
+  }

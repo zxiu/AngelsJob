@@ -59,7 +59,8 @@ class System::Jobs::OffersController < System::JobsController
   end
 
   def apply
-    redirect_to new_application_path(offer_id: params[:offer_id])
+    puts @offer
+    redirect_to action: :index
   end
 
   private

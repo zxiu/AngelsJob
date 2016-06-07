@@ -23,6 +23,7 @@ Rails.application.routes.draw do
       resources :agents, only: [:index, :show, :edit, :update]
       resources :offers
       resources :applications
+      post "offers/:id/apply/:application_id", controller: :offers, action: :apply, as: :offer_apply
     end
 
   end

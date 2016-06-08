@@ -15,6 +15,7 @@ Rails.application.routes.draw do
       resources :education_infos
       resources :career_infos
       resources :skills
+      resources :cv_templates
     end
 
     resource :jobs, only: [:show]
@@ -23,6 +24,7 @@ Rails.application.routes.draw do
       resources :agents, only: [:index, :show, :edit, :update]
       resources :offers
       resources :applications
+      post "offers/:id/apply/:application_id", controller: :offers, action: :apply, as: :offer_apply
     end
 
   end

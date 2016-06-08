@@ -5,24 +5,13 @@ Offers
   %p
     .card.card-block
       %p
-        %b
-          = link_to offer.title, offer.link, target: :_blank
-        %i
-          = "(#{offer.position})"
-        .pull-lg-right
-          = offer.online_at
-      .card-text
-        %p
-          = offer.company.name
-          = link_to offer.company.homepage
-        %p
-          %span
-            = offer.contact.full_name_with_title
-            = mail_to offer.contact.email
+        = render partial: 'shared/system/jobs/offer', locals: {offer: offer}
         %p
           = t "#{:applications}:"
-          = offer.applications.count
-        -# = "#{offer.branch}, #{offer.job_type}"
+        %p
+          - offer.applications.each do |application|
+            .row.col-lg-12
+              = link_to (application.applied_at || application.created_at).to_s, application_path(application)
       %p
         = link_to "Apply this offer", new_application_path(offer:{id: offer.id}), method: :get
         %row.pull-lg-right

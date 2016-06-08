@@ -44,6 +44,9 @@ gem 'devise'
 # Haml-rails provides Haml generators for Rails 4.
 gem "haml-rails", "~> 0.9"
 
+# Liquid is a template engine which was written with very specific requirements:
+gem 'liquid-rails'
+
 gem 'omniauth'
 
 # Bootstrap 4 ruby gem for Ruby on Rails (Sprockets) and Compass.
@@ -53,6 +56,8 @@ gem 'autoprefixer-rails'
 # font-awesome-rails provides the Font-Awesome web fonts and stylesheets as a Rails engine for use with the asset pipeline.
 gem "font-awesome-rails"
 
+# The localeapp gem connects your rails app to the Locale service on http://www.localeapp.com. Locale makes hand editing translation files something you don't have to do.
+# gem 'localeapp'
 
 gem 'rest-client'
 

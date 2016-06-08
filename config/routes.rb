@@ -15,6 +15,7 @@ Rails.application.routes.draw do
       resources :education_infos
       resources :career_infos
       resources :skills
+      resources :cv_templates
     end
 
     resource :jobs, only: [:show]

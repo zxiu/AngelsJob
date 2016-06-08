@@ -13,7 +13,7 @@ class User < ActiveRecord::Base
   has_many :intents
   has_many :offers
   has_many :applications, through: :offers
-
+  has_many :cv_templates
   def personal_info_checked?
     true
   end

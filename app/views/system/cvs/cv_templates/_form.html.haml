@@ -1,0 +1,78 @@
+
+= form_for @cv_template, html: {id: :cv_template} do |f|
+  - if @cv_template.errors.any?
+    #error_explanation
+      %h2= "#{pluralize(@cv_template.errors.count, "error")} prohibited this template from being saved:"
+      %ul
+        - @cv_template.errors.full_messages.each do |msg|
+          %li= msg
+  .row
+    .col-lg-6
+      .field
+        = f.label :role
+        = f.select :role, CvTemplate.roles.keys
+        = f.hidden_field :content, id: :cv_templates_content
+  .row
+    .col-lg-12
+      .actions
+        #btn-salutation.btn.btn-primary.btn-template="salutation"
+        #btn-offer.btn.btn-success.btn-template="offer"
+        #btn-source.btn.btn-success.btn-template="source"
+        #btn-date.btn.btn-warning.btn-template="date"
+        #btn-sign.btn.btn-warning.btn-template="sign"
+
+      .field
+        = f.label :content
+        #editor.textarea{contentEditable: true}
+#btn-save.btn.btn-danger=:Save
+
+:css
+  .textarea {
+    width: 100%;
+    min-height: 500px;
+    border: solid 1px;
+  }
+
+:javascript
+
+  var editor = document.getElementById('editor')
+  $('#btn-save').click(function(){
+    $('#cv_templates_content').val(editor.innerHTML);
+    console.log($('#cv_templates_content').val());
+    $('#cv_template').submit();
+  });
+  $('.btn-template').mousedown(function() {
+    var ae = document.activeElement;
+    setTimeout(function() { ae.focus() }, 1);
+  })
+
+  $('.btn-template').click(function(){
+    var id = $(this).attr('id')
+    switch (id){
+    case 'btn-salutation':
+      insertElem("{{ @salutation }}")
+      break;
+    case 'btn-date':
+      insertElem("{{ @date }}")
+      break;
+    case 'btn-sign':
+      insertElem("{{ @sign }}")
+      break;
+    case 'btn-offer':
+      insertElem("{{ @offer.title }}")
+      break;
+    }
+  });
+  var insertElem = function(text){
+    var range = window.getSelection().getRangeAt(0);
+    var newElement = newElem(text);
+    if (editor.contains(range.startContainer)){
+      range.deleteContents();
+      range.insertNode(newElement);
+    }
+  }
+  var newElem = function(text){
+    var e = document.createElement('span');
+    e.innerHTML = text
+    return e
+  }

@@ -56,6 +56,8 @@ gem 'autoprefixer-rails'
 # font-awesome-rails provides the Font-Awesome web fonts and stylesheets as a Rails engine for use with the asset pipeline.
 gem "font-awesome-rails"
 
+# The localeapp gem connects your rails app to the Locale service on http://www.localeapp.com. Locale makes hand editing translation files something you don't have to do.
+# gem 'localeapp'
 
 gem 'rest-client'
 

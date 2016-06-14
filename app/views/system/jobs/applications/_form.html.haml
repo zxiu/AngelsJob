@@ -2,6 +2,7 @@ form application
 %p= @application.inspect
 %p= @application.offer.inspect
 %p= @application.offer.contact.inspect
+%p= @template.inspect
 = form_for @application do |f|
   - if @application.errors.any?
     #error_explanation
@@ -16,7 +17,11 @@ form application
       = fa.hidden_field :id
   %p
     = f.label :cover_letter
-    = f.text_area :cover_letter, value: :haha, rows: 30
+    = @cv_templates.first.inspect
+    -# = @cover_letter
+    -# = f.text_area :cover_letter, value: :haha, rows: 30
+  #template-content{contentEditable: true, data: {content: @cover_letter }}
+
   .actions
     = f.submit 'Save'
 
@@ -25,3 +30,8 @@ form application
   textarea {
     width: 100%;
   }
+
+:javascript
+  $().ready(function(){
+    $('#template-content').html($('#template-content').data('content'));
+  });

@@ -1,5 +1,5 @@
 class System::Jobs::OffersController < System::JobsController
-  before_action :set_offer, only: [:show, :edit, :update, :destroy]
+  before_action :set_offer, only: [:show, :edit, :update, :destroy, :apply]
 
   def index
     @offers = current_user.offers
@@ -59,7 +59,6 @@ class System::Jobs::OffersController < System::JobsController
   end
 
   def apply
-    puts @offer
     redirect_to action: :index
   end
 

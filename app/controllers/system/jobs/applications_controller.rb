@@ -7,6 +7,12 @@ class System::Jobs::ApplicationsController < System::JobsController
   # GET /applications/new
   def new
     @application = Application.new
+    @cv_templates = current_user.cv_templates
+    @template = Liquid::Template.parse(current_user.cv_templates.first.content) unless current_user.cv_templates.blank?
+    unless @template.blank?
+      @cover_letter = @template.render('salutation' => 'Dear Sir ')
+    end
+
     @application.offer = current_user.offers.find(params.require(:offer)[:id])
   end
 

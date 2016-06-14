@@ -23,7 +23,7 @@
 
       .field
         = f.label :content
-        #editor.textarea{contentEditable: true}
+        #editor.textarea{contentEditable: true, data: {content: @cv_template.content}}
 #btn-save.btn.btn-danger=:Save
 
 :css
@@ -34,6 +34,9 @@
   }
 
 :javascript
+  $().ready(function(){
+    $('#editor').html($('#editor').data('content'));
+  });
 
   var editor = document.getElementById('editor')
   $('#btn-save').click(function(){
@@ -50,16 +53,19 @@
     var id = $(this).attr('id')
     switch (id){
     case 'btn-salutation':
-      insertElem("{{ @salutation }}")
+      insertElem("{{ salutation }}")
       break;
     case 'btn-date':
-      insertElem("{{ @date }}")
+      insertElem("{{ date }}")
       break;
     case 'btn-sign':
-      insertElem("{{ @sign }}")
+      insertElem("{{ sign }}")
       break;
     case 'btn-offer':
-      insertElem("{{ @offer.title }}")
+      insertElem("{{ offer.title }}")
+      break;
+    case 'btn-source':
+      insertElem("{{ offer.agent }}")
       break;
     }
   });

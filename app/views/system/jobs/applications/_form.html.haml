@@ -15,14 +15,13 @@
   = fields_for @application.offer do |fa|
     .field
       = fa.hidden_field :id
-  %p
+  .field
     = f.label :cover_letter
     = f.hidden_field :cover_letter, id: :application_cover_letter
-    = @cv_templates.first.content
-  #editor.textarea{contentEditable: true, data: {content: make_cover_letter(offer: @application.offer) }}
+    #editor.textarea{contentEditable: true, data: {content: make_cover_letter(offer: @application.offer) }}
 
   .actions
-    #btn-save.btn.btn-danger=:Send
+    #btn-save.btn.btn-danger=:Save
 
 :css
   .textarea {

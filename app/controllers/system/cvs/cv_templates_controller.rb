@@ -60,7 +60,7 @@ class System::Cvs::CvTemplatesController < System::CvsController
 
     # Never trust parameters from the scary internet, only allow the white list through.
     def cv_template_params
-      params.require(:cv_template).permit(:title, :content, :for)
+      params.require(:cv_template).permit(:name, :content, :for)
     end
 
 end

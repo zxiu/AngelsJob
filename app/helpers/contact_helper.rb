@@ -1,9 +1,16 @@
 module ContactHelper
   def full_name
     fn = String.new
-    fn += self.try(:first_name)
-    fn += " "
-    fn += self.try(:last_name)
+    begin
+      fn += self.try(:first_name)
+    rescue
+    end
+    begin
+      fn += " "
+      fn += self.try(:last_name)
+    rescue
+    end
+    return fn
   end
 
   def title

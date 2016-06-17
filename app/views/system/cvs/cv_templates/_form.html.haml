@@ -8,8 +8,8 @@
   .row
     .col-lg-6
       .field
-        = f.label :title
-        = f.text_field :title, value: "Template #{current_user.cv_templates.count + 1 }"
+        = f.label :name
+        = f.text_field :name, value: @cv_template.name.blank? ? "Template #{current_user.cv_templates.count + 1 }" : @cv_template.name
       .field
         = f.label :role
         = f.select :role, CvTemplate.roles.keys

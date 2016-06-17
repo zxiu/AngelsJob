@@ -1,5 +1,16 @@
 Applications
 = link_to "New", new_application_path
+- @applications.each do |application|
+  %p
+    .card.card-block
+      %p= application.inspect
+      %p= application.offer.inspect
+      - if application.applied_at.blank?
+        = link_to :preview, application_preview_path(application_id: application.id)
+      - else
+        %p= application.applied_at
+
+
 -#
 -# - @offers.each do |offer|
 -#   %p

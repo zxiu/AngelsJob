@@ -23,7 +23,9 @@ Rails.application.routes.draw do
       resources :intents
       resources :agents, only: [:index, :show, :edit, :update]
       resources :offers
-      resources :applications
+      resources :applications do
+        get 'preview'
+      end
       post "offers/:id/apply/:application_id", controller: :offers, action: :apply, as: :offer_apply
     end
 

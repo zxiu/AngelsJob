@@ -28,18 +28,18 @@ Agent.create({name: 'Monster.de', homepage: 'http://www.monster.de/', logo: 'htt
 Agent.create({name: 'Job.de', homepage: 'http://job.de/', logo: 'http://www.isironline.org/wp-content/uploads/2014/09/Job.jpg', country: :de})
 
 offer = Offer.new
-offer.title = "This is a dummy Job"
-offer.link = "http://dummy-job.de"
-offer.position = "Software developer"
+offer.title = "Ruby on Rails (RoR) Developer (m/w)"
+offer.link = "http://www.stepstone.de/stellenangebote--Ruby-on-Rails-RoR-Developer-m-w-Hamburg-Medlinq-Softwaresysteme-GmbH--3749807-inline.html"
+offer.position = "Developer"
 offer.online_at = Time.now
 offer.company = Company.new
-offer.company.name = "Dream company"
-offer.company.homepage = "http://dreamcompany.de"
+offer.company.name = "MEDLINQ Softwaresysteme GmbH"
+offer.company.homepage = "https://www.medlinq.com/"
 offer.contact = Contact.new
-offer.contact.first_name = "Vovo"
-offer.contact.last_name = "Lilly"
-offer.contact.email = "vovllilly@dreamcompany.de"
-offer.contact.female!
+# offer.contact.first_name = "Vovo"
+# offer.contact.last_name = "Lilly"
+offer.contact.email = "personal@medlinq.com"
+# offer.contact.female!
 offer.save
 
 admin.offers << offer

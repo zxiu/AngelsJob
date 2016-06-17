@@ -4,12 +4,15 @@
 - @cv_templates.each do |template|
   %p
     .card.card-block
-      #template-content{data: {content: template.content}}
+      %p= template.name
+      .template-content{data: {content: template.content}}
       %p
         = link_to "Edit", edit_cv_template_path(template.id)
         = link_to "Delete", cv_template_path(template.id), method: :delete, data: {confirm: "Really delete this record?"}
 
 :javascript
   $().ready(function(){
-    $('#template-content').html($('#template-content').data('content'));
+    $('.template-content').each(function(){
+      $(this).html($(this).data('content'));
+    });
   });

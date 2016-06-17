@@ -27,14 +27,18 @@ class System::Jobs::ApplicationsController < System::JobsController
     #
     respond_to do |format|
       if @application.save
-        # current_user.applications << @application
-        format.html { redirect_to action: :index, notice: 'Application was successfully created.' }
+        current_user.applications << @application
+        format.html { redirect_to application_preview_path(application_id: @application.id), notice: 'Application was successfully created.' }
         format.json { render :show, status: :created, location: @application }
       else
         format.html { render :new }
         format.json { render json: @application.errors, status: :unprocessable_entity }
       end
     end
+  end
+
+  def preview
+    @application = current_user.applications.where(id: params[:application_id])
   end
 
   def edit

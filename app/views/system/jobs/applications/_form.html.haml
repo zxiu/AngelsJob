@@ -1,9 +1,9 @@
-form application
-%p= @application.inspect
-%p= @application.offer.inspect
-%p= @application.offer.contact.inspect
-%p= @template.inspect
-= form_for @application do |f|
+-# form application
+-# %p= @application.inspect
+-# %p= @application.offer.inspect
+%p= @application.offer.contact.full_name
+-# %p= @template.inspect
+= form_for @application, html: { id: :application_form} do |f|
   - if @application.errors.any?
     #error_explanation
       %h2= "#{pluralize(@application.errors.count, "error")} prohibited this application from being saved:"
@@ -17,21 +17,26 @@ form application
       = fa.hidden_field :id
   %p
     = f.label :cover_letter
-    = @cv_templates.first.inspect
-    -# = @cover_letter
-    -# = f.text_area :cover_letter, value: :haha, rows: 30
-  #template-content{contentEditable: true, data: {content: @cover_letter }}
+    = f.hidden_field :cover_letter, id: :application_cover_letter
+    = @cv_templates.first.content
+  #editor.textarea{contentEditable: true, data: {content: make_cover_letter(offer: @application.offer) }}
 
   .actions
-    = f.submit 'Save'
-
+    #btn-save.btn.btn-danger=:Send
 
 :css
-  textarea {
+  .textarea {
     width: 100%;
+    min-height: 500px;
+    border: solid 1px;
   }
 
 :javascript
   $().ready(function(){
-    $('#template-content').html($('#template-content').data('content'));
+    var editor = document.getElementById('editor')
+    $('#editor').html($('#editor').data('content'));
+    $('#btn-save').click(function(){
+      $('#application_cover_letter').val(editor.innerHTML);
+      $('#application_form').submit();
+    });
   });

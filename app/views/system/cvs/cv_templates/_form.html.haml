@@ -1,5 +1,4 @@
-
-= form_for @cv_template, html: {id: :cv_template} do |f|
+= form_for @cv_template, html: {id: :cv_template_form} do |f|
   - if @cv_template.errors.any?
     #error_explanation
       %h2= "#{pluralize(@cv_template.errors.count, "error")} prohibited this template from being saved:"
@@ -8,6 +7,9 @@
           %li= msg
   .row
     .col-lg-6
+      .field
+        = f.label :title
+        = f.text_field :title, value: "Template #{current_user.cv_templates.count + 1 }"
       .field
         = f.label :role
         = f.select :role, CvTemplate.roles.keys
@@ -41,8 +43,7 @@
   var editor = document.getElementById('editor')
   $('#btn-save').click(function(){
     $('#cv_templates_content').val(editor.innerHTML);
-    console.log($('#cv_templates_content').val());
-    $('#cv_template').submit();
+    $('#cv_template_form').submit();
   });
   $('.btn-template').mousedown(function() {
     var ae = document.activeElement;
@@ -62,10 +63,10 @@
       insertElem("{{ sign }}")
       break;
     case 'btn-offer':
-      insertElem("{{ offer.title }}")
+      insertElem("{{ offer }}")
       break;
     case 'btn-source':
-      insertElem("{{ offer.agent }}")
+      insertElem("{{ source }}")
       break;
     }
   });

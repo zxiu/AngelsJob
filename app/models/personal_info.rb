@@ -1,4 +1,5 @@
 class PersonalInfo < ActiveRecord::Base
+  include ContactHelper
   mount_uploader :avatar, AvatarUploader
 
   belongs_to :user

@@ -1,5 +1,6 @@
 = "Education Infos"
-= link_to "New ", new_education_info_path
+= link_to "New ", new_education_info_path if controller.is_a?(System::Cvs::EducationInfosController)
+- @education_infos = current_user.education_infos.order("#{:begin}, #{:end}") if @education_infos.blank?
 - @education_infos.each do |education_info|
   %p
     .card.card-block

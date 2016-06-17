@@ -3,6 +3,8 @@ class Application < ActiveRecord::Base
   belongs_to :offer
 
   def applied?
-    !self.applied_at.blank? 
+    !self.applied_at.blank?
   end
+
+
 end

@@ -27,7 +27,6 @@ class System::Jobs::ApplicationsController < System::JobsController
     #
     respond_to do |format|
       if @application.save
-        current_user.applications << @application
         format.html { redirect_to application_preview_path(application_id: @application.id), notice: 'Application was successfully created.' }
         format.json { render :show, status: :created, location: @application }
       else

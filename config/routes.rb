@@ -29,6 +29,10 @@ Rails.application.routes.draw do
       post "offers/:id/apply/:application_id", controller: :offers, action: :apply, as: :offer_apply
     end
 
+    resource :setting
+    scope module: :setting do
+      resource :mail
+    end
   end
 
   namespace :tadmin do

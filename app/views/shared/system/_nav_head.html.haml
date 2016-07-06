@@ -14,7 +14,7 @@
       %a.nav-link.dropdown-toggle{"aria-expanded" => "false", "aria-haspopup" => "true", "data-toggle" => "dropdown", :href => "#", :role => "button"}= "Welcome #{current_user.email}"
       .dropdown-menu
         %a.dropdown-item{:href => "#"} About
-        = link_to 'Settings', setting_path, method: :get, class: ["dropdown-item"]
+        = link_to 'Settings', settings_path, method: :get, class: ["dropdown-item"]
         %a.dropdown-item{:href => "#"} Something else here
         = link_to 'Admin Tools', tadmin_path, method: :get, class: ["dropdown-item"]
         .dropdown-divider
